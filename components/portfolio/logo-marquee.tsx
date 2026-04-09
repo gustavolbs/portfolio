@@ -3,13 +3,19 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-import type { LogoItem } from "@/lib/portfolio-content";
+import { translate, type Locale, type LogoItem } from "@/lib/portfolio-content";
 
 type LogoMarqueeProps = {
   items: readonly LogoItem[];
+  locale: Locale;
 };
 
-export function LogoMarquee({ items }: LogoMarqueeProps) {
+const logoScaleById: Record<string, string> = {
+  evermart: "scale-[2.0]",
+  vccess: "scale-[2.0]",
+};
+
+export function LogoMarquee({ items, locale }: LogoMarqueeProps) {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const animationRef = useRef<Animation | null>(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -61,21 +67,24 @@ export function LogoMarquee({ items }: LogoMarqueeProps) {
         <div ref={trackRef} className="inline-flex min-w-max items-center">
           {renderedItems.map((item, index) => (
             <div
-              key={`${item.name}-${index}`}
+              key={`${item.id}-${index}`}
               className="group relative inline-flex min-h-[132px] w-[220px] shrink-0 items-center justify-center px-7 py-8"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
               <Image
                 src={item.src}
-                alt={index < items.length ? item.name : ""}
+                alt={index < items.length ? translate(locale, item.name) : ""}
                 width={180}
                 height={56}
-                className="h-auto max-h-12 w-auto max-w-full object-contain brightness-0 invert"
+                className={[
+                  "h-auto max-h-12 w-auto max-w-full object-contain brightness-0 invert transition-transform duration-300",
+                  logoScaleById[item.id] ?? "",
+                ].join(" ")}
                 aria-hidden={index >= items.length}
               />
               <span className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-2 whitespace-nowrap rounded-full border border-white/10 bg-[#0f0917]/95 px-3 py-2 text-[11px] font-medium tracking-[0.1em] text-white opacity-0 transition duration-200 group-hover:translate-y-0 group-hover:opacity-100">
-                {item.name}
+                {translate(locale, item.name)}
               </span>
             </div>
           ))}

@@ -1,0 +1,150 @@
+import type { LocaleMessages } from "@/lib/locales/types";
+
+export const en: LocaleMessages = {
+  intro: {
+    status: "Frontend engineer focused on premium interfaces and visual experience",
+    title: "Portfolio, product, and visual narrative in the same system.",
+    body: "I want each part of my path to appear as a visual chapter: education, experience, and creation. Less static resume, more art direction, clarity, and intention.",
+    cta: "Explore chapters",
+    roleLine: ["Frontend Engineer", "Product", "Visual Systems"],
+  },
+  hero: {
+    eyebrow: "Frontend Engineer",
+    kicker: "Premium interfaces with focus on product, clarity, and execution.",
+    availabilityLabel: "Available",
+    availabilityValue: "Remote / Global",
+    locationLabel: "Base",
+    locationValue: "Campina Grande, BR",
+    valueLabel: "Specialty",
+    valueValue: "React, Next.js, TypeScript",
+  },
+  logoSection: {
+    eyebrow: "Clients / Teams",
+    title: "Brands and contexts where my work has already lived.",
+    body: "A selection of companies, products, and environments where I worked across frontend, product, and visual systems.",
+  },
+  stackSection: {
+    eyebrow: "Stack / Capabilities",
+    title: "Skills organized by domain, not just by framework.",
+    body: "Frontend is the center, but the work connects with architecture, backend, DevOps, system design, and product.",
+  },
+  stackGroups: {
+    frontend: "Frontend",
+    backend: "Backend",
+    devops: "DevOps",
+    systems: "Architecture and Systems",
+    product: "Product, UI and UX",
+  },
+  clientLogos: {
+    civicplus: "CivicPlus",
+    duelbits: "Duelbits",
+    evermart: "Evermart (discontinued operations)",
+    leaf: "Leaf Agriculture",
+    linker: "Linker (now Omie)",
+    livenation: "Live Nation",
+    nivells: "Nivells (discontinued operations)",
+    vccess: "VCCESS (discontinued operations)",
+    warren: "Warren Brasil",
+  },
+  sections: {
+    education: {
+      eyebrow: "Education",
+      title: "Technical foundation and analytical range.",
+      body: "The academic chapter appears as progression. Each item gets isolated focus while the scene stays stable.",
+      items: {
+        ufcg: {
+          title: "Federal University of Campina Grande",
+          meta: "Bachelor in Computer Science",
+          body: "Strong foundation in computing, logic, software, and structured problem solving.",
+        },
+        fullcycle: {
+          title: "MBA in FullCycle Architecture",
+          meta: "Architecture, product, and systems thinking",
+          body: "Deeper work in technical decision making, architecture, and product thinking beyond the interface.",
+        },
+      },
+    },
+    experience: {
+      eyebrow: "Experience",
+      title: "Product, consistency, and delivery.",
+      body: "Professional experience appears as short chapters, ordered by relevance and with a more editorial reading.",
+      items: {
+        xteam: {
+          title: "X-Team",
+          meta: "International teams and digital product",
+          body: "Work on product interfaces with a high bar for visual quality, clarity, and remote collaboration.",
+        },
+        frontend: {
+          title: "Frontend with product thinking",
+          meta: "React, Next.js, TypeScript, and performance",
+          body: "Building digital experiences with attention to detail, flow, and system legibility.",
+        },
+        delivery: {
+          title: "Full-cycle delivery",
+          meta: "Design, systems, and technical decisions",
+          body: "Ability to connect implementation, visual direction, and product outcome without losing consistency.",
+        },
+      },
+    },
+    creation: {
+      eyebrow: "Creation",
+      title: "Exploration, projects, and range.",
+      body: "The third chapter shows where visual language, curiosity, and product become experiments and projects.",
+      items: {
+        lensly: {
+          title: "Lensly.ai",
+          meta: "AI-powered product",
+          body: "Exploration of product, interface, and visual narrative applied to AI experiences.",
+        },
+        "open-source": {
+          title: "Open source and visual systems",
+          meta: "Libraries, components, and consistency",
+          body: "Continuous experimentation with reusable components, visual standardization, and interface structure.",
+        },
+        github: {
+          title: "Public GitHub",
+          meta: "Prototypes, tests, and technical range",
+          body: "A public layer of experimentation that shows process, curiosity, and exploration speed.",
+        },
+      },
+    },
+  },
+  footer: {
+    eyebrow: "Contact",
+    title: "Ambitious projects ask for strong interfaces, product clarity, and consistent execution.",
+    body: "If the context asks for a polished product, coherent systems, and above-average visual quality, it makes sense to talk.",
+    highlights: [
+      { label: "Focus", value: "React, Next.js, TypeScript" },
+      { label: "Scope", value: "Frontend / Product / Motion" },
+      { label: "Format", value: "Remote / Global" },
+      { label: "Language", value: "PT / EN / ES / FR / IT" },
+    ],
+    form: {
+      eyebrow: "Contact",
+      title: "Let’s talk about the project.",
+      body: "If it makes sense, I’ll reply with technical context, availability, and next steps.",
+      subject: "Portfolio contact",
+      nameFieldLabel: "Name",
+      emailFieldLabel: "Email",
+      name: "Name",
+      email: "Email",
+      message: "Project summary",
+      submit: "Send message",
+      direct: "Direct contact",
+      directBody: "If you prefer, you can reach out by email or LinkedIn.",
+      mail: "Write by email",
+      linkedin: "Open LinkedIn",
+    },
+  },
+  rail: {
+    introLabel: "Intro",
+    introDescription: "Opening",
+    logosLabel: "Logos",
+    logosDescription: "Clients",
+    stackLabel: "Stack",
+    stackDescription: "Capabilities",
+    footerLabel: "End",
+    footerDescription: "Contact",
+    chapterHint: "Use scroll or click the numbers to navigate",
+  },
+};

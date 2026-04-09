@@ -1,5 +1,5 @@
 import type { Locale } from "@/lib/portfolio-content";
-import { heroCards, intro, translate } from "@/lib/portfolio-content";
+import { heroMeta, intro, translate } from "@/lib/portfolio-content";
 
 type HeroSectionProps = {
   locale: Locale;
@@ -7,76 +7,80 @@ type HeroSectionProps = {
 
 export function HeroSection({ locale }: HeroSectionProps) {
   return (
-    <section className="grid gap-6 rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,#1d1328_0%,#120b19_100%)] px-6 py-8 shadow-[0_28px_90px_rgba(0,0,0,0.28)] md:px-8 md:py-10 xl:grid-cols-[minmax(0,1.15fr)_360px] xl:items-end">
-      <div className="max-w-4xl">
-        <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/72">
-          Interactive Portfolio
-        </span>
-        <h1 className="mt-5 max-w-[10ch] text-[clamp(3.5rem,8vw,6.4rem)] font-medium leading-[0.88] tracking-[-0.08em] text-white">
-          {translate(locale, intro.title)}
-        </h1>
-        <p className="mt-6 max-w-3xl text-[clamp(1rem,1.4vw,1.18rem)] leading-8 text-white/72">
-          {translate(locale, intro.body)}
-        </p>
+    <section className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,#181021_0%,#120b19_100%)] px-5 py-6 shadow-[0_24px_72px_rgba(0,0,0,0.24)] sm:px-6 sm:py-7 md:rounded-[38px] md:px-8 md:py-9">
+      <div className="pointer-events-none absolute right-[-4rem] top-[-3rem] h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(255,168,99,0.14),transparent_72%)] blur-3xl sm:h-56 sm:w-56" />
+      <div className="pointer-events-none absolute bottom-[-4rem] left-[-3rem] h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(102,204,255,0.12),transparent_72%)] blur-3xl sm:h-56 sm:w-56" />
 
-        <div className="mt-8 flex flex-wrap items-center gap-4">
-          <a
-            href="#chapters"
-            className="inline-flex min-h-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#ffb15d_0%,#ff8f72_58%,#fff0d3_100%)] px-6 text-sm font-semibold uppercase tracking-[0.16em] text-[#180f22] shadow-[0_18px_40px_rgba(255,150,93,0.24)] transition hover:translate-y-[-1px]"
-          >
-            {translate(locale, intro.cta)}
-          </a>
-
-          <div className="flex flex-wrap gap-3 text-sm text-white/58">
-            {intro.roleLine[locale].map((item) => (
-              <span key={item} className="inline-flex items-center gap-3">
-                <span>{item}</span>
-              </span>
-            ))}
+      <div className="relative grid gap-6 lg:gap-8 xl:grid-cols-[minmax(0,1fr)_320px] xl:items-end">
+        <div className="min-w-0 max-w-[56rem]">
+          <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+            <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/72">
+              {translate(locale, heroMeta.eyebrow)}
+            </span>
+            <span className="max-w-[30rem] text-sm leading-6 text-white/42">
+              {translate(locale, heroMeta.kicker)}
+            </span>
           </div>
-        </div>
-      </div>
 
-      <aside className="grid gap-4">
-        <div className="overflow-hidden rounded-[28px] border border-white/10 bg-[radial-gradient(circle_at_100%_0%,rgba(255,177,93,0.18),transparent_28%),linear-gradient(180deg,#2d1c3c_0%,#1d1228_100%)] p-6">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/52">
-            {translate(locale, heroCards.positioning.label)}
-          </span>
-          <h2 className="mt-3 text-[1.42rem] font-semibold leading-tight text-white">
-            {heroCards.positioning.title}
-          </h2>
-          <p className="mt-3 text-sm leading-7 text-white/72">
-            {translate(locale, heroCards.positioning.body)}
+          <h1 className="mt-5 max-w-[9ch] text-[clamp(2.7rem,13vw,5.8rem)] font-medium leading-[0.9] tracking-[-0.085em] text-white sm:mt-6">
+            {translate(locale, intro.title)}
+          </h1>
+
+          <p className="mt-4 max-w-[38rem] text-[0.98rem] leading-7 text-white/66 sm:mt-5 sm:text-[1.02rem] sm:leading-8">
+            {translate(locale, intro.body)}
           </p>
-          <ul className="mt-5 grid gap-2 text-sm text-white/88">
-            {heroCards.positioning.bullets[locale].map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#ffb15d]" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+
+          <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+            <a
+              href="#chapters"
+              className="inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#ffb15d_0%,#ff8f72_58%,#fff0d3_100%)] px-5 text-sm font-semibold uppercase tracking-[0.16em] text-[#180f22] shadow-[0_18px_40px_rgba(255,150,93,0.24)] transition hover:-translate-y-0.5 sm:min-h-14 sm:w-auto sm:px-6"
+            >
+              {translate(locale, intro.cta)}
+            </a>
+
+            <div className="hidden flex-wrap gap-2.5 sm:flex">
+              {intro.roleLine[locale].map((item) => (
+                <span
+                  key={item}
+                  className="inline-flex items-center rounded-full border border-white/8 px-3 py-2 text-sm text-white/54"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-[24px] border border-white/10 bg-white/[0.03] p-5">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/52">
-              {translate(locale, heroCards.base.label)}
-            </span>
-            <p className="mt-3 text-lg font-semibold text-white">
-              {heroCards.base.value}
-            </p>
+        <aside className="grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
+          <div className="rounded-[28px] border border-white/10 bg-[linear-gradient(145deg,#2f1936_0%,#18101d_100%)] p-5">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/42">
+                {translate(locale, heroMeta.valueLabel)}
+              </div>
+              <div className="mt-3 text-[1.3rem] font-medium leading-[1.02] tracking-[-0.05em] text-white sm:text-[1.45rem]">
+                {translate(locale, heroMeta.valueValue)}
+              </div>
           </div>
-          <div className="rounded-[24px] border border-white/10 bg-white/[0.03] p-5">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/52">
-              {translate(locale, heroCards.availability.label)}
-            </span>
-            <p className="mt-3 text-lg font-semibold text-white">
-              {translate(locale, heroCards.availability.value)}
-            </p>
+
+          <div className="grid gap-3 sm:grid-cols-1">
+            <div className="rounded-[24px] border border-white/10 bg-white/[0.035] p-4">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/42">
+                {translate(locale, heroMeta.locationLabel)}
+              </div>
+              <div className="mt-3 text-lg font-semibold tracking-[-0.04em] text-white">
+                {translate(locale, heroMeta.locationValue)}
+              </div>
+            </div>
+            <div className="rounded-[24px] border border-white/10 bg-white/[0.035] p-4">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/42">
+                {translate(locale, heroMeta.availabilityLabel)}
+              </div>
+              <div className="mt-3 text-lg font-semibold tracking-[-0.04em] text-white">
+                {translate(locale, heroMeta.availabilityValue)}
+              </div>
+            </div>
           </div>
-        </div>
-      </aside>
+        </aside>
+      </div>
     </section>
   );
 }

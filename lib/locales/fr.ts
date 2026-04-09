@@ -1,0 +1,150 @@
+import type { LocaleMessages } from "@/lib/locales/types";
+
+export const fr: LocaleMessages = {
+  intro: {
+    status: "Frontend engineer orienté interfaces premium et expérience visuelle",
+    title: "Portfolio, produit et narration visuelle dans le même système.",
+    body: "Je veux que chaque partie de mon parcours apparaisse comme un chapitre visuel : formation, expérience et création. Moins de CV statique, plus de direction artistique, de clarté et d'intention.",
+    cta: "Explorer les chapitres",
+    roleLine: ["Frontend Engineer", "Produit", "Visual Systems"],
+  },
+  hero: {
+    eyebrow: "Frontend Engineer",
+    kicker: "Interfaces premium avec focus produit, clarté et exécution.",
+    availabilityLabel: "Disponible",
+    availabilityValue: "Remote / Global",
+    locationLabel: "Base",
+    locationValue: "Campina Grande, BR",
+    valueLabel: "Spécialité",
+    valueValue: "React, Next.js, TypeScript",
+  },
+  logoSection: {
+    eyebrow: "Clients / Équipes",
+    title: "Marques et contextes où mon travail a déjà existé.",
+    body: "Sélection d'entreprises, produits et environnements où j'ai travaillé entre frontend, produit et systèmes visuels.",
+  },
+  stackSection: {
+    eyebrow: "Stack / Capacités",
+    title: "Compétences organisées par domaine, pas seulement par framework.",
+    body: "Le frontend est le centre, mais le travail se connecte à l'architecture, au backend, au DevOps, au design système et au produit.",
+  },
+  stackGroups: {
+    frontend: "Frontend",
+    backend: "Backend",
+    devops: "DevOps",
+    systems: "Architecture et Systèmes",
+    product: "Produit, UI et UX",
+  },
+  clientLogos: {
+    civicplus: "CivicPlus",
+    duelbits: "Duelbits",
+    evermart: "Evermart (a cessé ses activités)",
+    leaf: "Leaf Agriculture",
+    linker: "Linker (désormais Omie)",
+    livenation: "Live Nation",
+    nivells: "Nivells (a cessé ses activités)",
+    vccess: "VCCESS (a cessé ses activités)",
+    warren: "Warren Brasil",
+  },
+  sections: {
+    education: {
+      eyebrow: "Formation",
+      title: "Base technique et répertoire analytique.",
+      body: "La partie académique apparaît comme une progression. Chaque élément reçoit un focus isolé pendant que la scène reste stable.",
+      items: {
+        ufcg: {
+          title: "Université Fédérale de Campina Grande",
+          meta: "Licence en informatique",
+          body: "Base solide en informatique, logique, software et résolution structurée de problèmes.",
+        },
+        fullcycle: {
+          title: "MBA en architecture FullCycle",
+          meta: "Architecture, produit et vision systémique",
+          body: "Approfondissement de la décision technique, de l'architecture et de la lecture produit au-delà de l'interface.",
+        },
+      },
+    },
+    experience: {
+      eyebrow: "Expérience",
+      title: "Produit, cohérence et delivery.",
+      body: "L'expérience professionnelle apparaît comme des chapitres courts, ordonnés par pertinence et avec une lecture plus éditoriale.",
+      items: {
+        xteam: {
+          title: "X-Team",
+          meta: "Équipes internationales et produit digital",
+          body: "Travail sur des interfaces produit avec un niveau élevé de qualité visuelle, de clarté et de collaboration à distance.",
+        },
+        frontend: {
+          title: "Frontend avec vision produit",
+          meta: "React, Next.js, TypeScript et performance",
+          body: "Construction d'expériences digitales avec attention au détail, à la fluidité et à la lisibilité du système.",
+        },
+        delivery: {
+          title: "Delivery full-cycle",
+          meta: "Design, système et décision technique",
+          body: "Capacité à relier implémentation, direction visuelle et résultat produit sans perdre en cohérence.",
+        },
+      },
+    },
+    creation: {
+      eyebrow: "Création",
+      title: "Exploration, projets et répertoire.",
+      body: "Le troisième chapitre montre là où langage visuel, curiosité et produit deviennent expérimentation et projet.",
+      items: {
+        lensly: {
+          title: "Lensly.ai",
+          meta: "Produit avec IA",
+          body: "Exploration de produit, d'interface et de narration visuelle appliquée aux expériences avec intelligence artificielle.",
+        },
+        "open-source": {
+          title: "Open source et système visuel",
+          meta: "Bibliothèques, composants et cohérence",
+          body: "Expérimentation continue avec des composants réutilisables, une standardisation visuelle et une structure d'interface.",
+        },
+        github: {
+          title: "GitHub public",
+          meta: "Prototypes, tests et répertoire technique",
+          body: "Une couche publique d'expérimentation qui montre le processus, la curiosité et la vitesse d'exploration.",
+        },
+      },
+    },
+  },
+  footer: {
+    eyebrow: "Contact",
+    title: "Les projets ambitieux demandent des interfaces fortes, de la clarté produit et une exécution cohérente.",
+    body: "Si le contexte demande un produit soigné, des systèmes cohérents et une qualité visuelle au-dessus de la moyenne, cela vaut la peine d'échanger.",
+    highlights: [
+      { label: "Focus", value: "React, Next.js, TypeScript" },
+      { label: "Périmètre", value: "Frontend / Produit / Motion" },
+      { label: "Format", value: "Remote / Global" },
+      { label: "Langue", value: "PT / EN / ES / FR / IT" },
+    ],
+    form: {
+      eyebrow: "Contact",
+      title: "Parlons du projet.",
+      body: "Si c’est pertinent, je répondrai avec contexte technique, disponibilité et prochaines étapes.",
+      subject: "Contact via portfolio",
+      nameFieldLabel: "Nom",
+      emailFieldLabel: "Email",
+      name: "Nom",
+      email: "E-mail",
+      message: "Résumé du projet",
+      submit: "Envoyer le message",
+      direct: "Contact direct",
+      directBody: "Si vous préférez, vous pouvez écrire par e-mail ou LinkedIn.",
+      mail: "Écrire par e-mail",
+      linkedin: "Ouvrir LinkedIn",
+    },
+  },
+  rail: {
+    introLabel: "Intro",
+    introDescription: "Ouverture",
+    logosLabel: "Logos",
+    logosDescription: "Clients",
+    stackLabel: "Stack",
+    stackDescription: "Capacités",
+    footerLabel: "Fin",
+    footerDescription: "Contact",
+    chapterHint: "Utilisez le scroll ou cliquez sur les numéros pour naviguer",
+  },
+};

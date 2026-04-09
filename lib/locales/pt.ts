@@ -1,0 +1,150 @@
+import type { LocaleMessages } from "@/lib/locales/types";
+
+export const pt: LocaleMessages = {
+  intro: {
+    status: "Frontend engineer com foco em interfaces premium e experiência visual",
+    title: "Portfólio, produto e narrativa visual no mesmo sistema.",
+    body: "Quero que cada parte da minha trajetória apareça como um capítulo visual: formação, experiência e criação. Menos currículo estático, mais direção de arte, clareza e intenção.",
+    cta: "Explorar capítulos",
+    roleLine: ["Frontend Engineer", "Produto", "Visual Systems"],
+  },
+  hero: {
+    eyebrow: "Frontend Engineer",
+    kicker: "Interfaces premium com foco em produto, clareza e execução.",
+    availabilityLabel: "Disponível",
+    availabilityValue: "Remoto / Global",
+    locationLabel: "Base",
+    locationValue: "Campina Grande, BR",
+    valueLabel: "Especialidade",
+    valueValue: "React, Next.js, TypeScript",
+  },
+  logoSection: {
+    eyebrow: "Clientes / Times",
+    title: "Marcas e contextos onde meu trabalho já passou.",
+    body: "Seleção de empresas, produtos e ambientes onde atuei em front-end, produto e sistemas visuais.",
+  },
+  stackSection: {
+    eyebrow: "Stack / Capacidades",
+    title: "Competências organizadas por domínio, não só por framework.",
+    body: "Front-end é o centro, mas a atuação se conecta com arquitetura, back-end, DevOps, design de sistema e produto.",
+  },
+  stackGroups: {
+    frontend: "Front-end",
+    backend: "Back-end",
+    devops: "DevOps",
+    systems: "Arquitetura e Sistemas",
+    product: "Produto, UI e UX",
+  },
+  clientLogos: {
+    civicplus: "CivicPlus",
+    duelbits: "Duelbits",
+    evermart: "Evermart (encerrou as atividades)",
+    leaf: "Leaf Agriculture",
+    linker: "Linker (agora Omie)",
+    livenation: "Live Nation",
+    nivells: "Nivells (encerrou as atividades)",
+    vccess: "VCCESS (encerrou as atividades)",
+    warren: "Warren Brasil",
+  },
+  sections: {
+    education: {
+      eyebrow: "Formação",
+      title: "Base técnica e repertório analítico.",
+      body: "A parte acadêmica aparece como progressão. Cada item tem foco isolado enquanto a cena permanece estável.",
+      items: {
+        ufcg: {
+          title: "Universidade Federal de Campina Grande",
+          meta: "Bacharel em Ciência da Computação",
+          body: "Base forte em computação, lógica, software e resolução estruturada de problemas.",
+        },
+        fullcycle: {
+          title: "MBA em Arquitetura FullCycle",
+          meta: "Arquitetura, produto e visão sistêmica",
+          body: "Aprofundamento em decisão técnica, arquitetura e leitura de produto além da interface.",
+        },
+      },
+    },
+    experience: {
+      eyebrow: "Experiência",
+      title: "Produto, consistência e entrega.",
+      body: "A experiência profissional aparece como capítulos curtos, em ordem de relevância e com leitura mais editorial.",
+      items: {
+        xteam: {
+          title: "X-Team",
+          meta: "Times internacionais e produto digital",
+          body: "Trabalho em interfaces de produto com exigência alta de qualidade visual, clareza e colaboração remota.",
+        },
+        frontend: {
+          title: "Front-end com mentalidade de produto",
+          meta: "React, Next.js, TypeScript e performance",
+          body: "Construção de experiências digitais com atenção ao detalhe, fluidez e legibilidade do sistema.",
+        },
+        delivery: {
+          title: "Entrega full-cycle",
+          meta: "Design, sistema e decisão técnica",
+          body: "Capacidade de conectar implementação, direção visual e resultado de produto sem perder consistência.",
+        },
+      },
+    },
+    creation: {
+      eyebrow: "Criação",
+      title: "Exploração, projeto e repertório.",
+      body: "O terceiro capítulo mostra o lado onde linguagem visual, curiosidade e produto viram experimento e projeto.",
+      items: {
+        lensly: {
+          title: "Lensly.ai",
+          meta: "Produto com IA",
+          body: "Exploração de produto, interface e narrativa visual aplicada a experiências com inteligência artificial.",
+        },
+        "open-source": {
+          title: "Open source e sistema visual",
+          meta: "Bibliotecas, componentes e consistência",
+          body: "Experimentação contínua com componentes reutilizáveis, padronização visual e estrutura de interface.",
+        },
+        github: {
+          title: "GitHub público",
+          meta: "Protótipos, testes e repertório técnico",
+          body: "Uma camada pública de experimentação que mostra processo, curiosidade e velocidade de exploração.",
+        },
+      },
+    },
+  },
+  footer: {
+    eyebrow: "Contato",
+    title: "Projetos ambiciosos pedem interface forte, clareza de produto e execução consistente.",
+    body: "Se o contexto pede produto bem acabado, sistema coerente e camada visual acima da média, faz sentido conversar.",
+    highlights: [
+      { label: "Foco", value: "React, Next.js, TypeScript" },
+      { label: "Escopo", value: "Frontend / Produto / Motion" },
+      { label: "Formato", value: "Remoto / Global" },
+      { label: "Idioma", value: "PT / EN / ES / FR / IT" },
+    ],
+    form: {
+      eyebrow: "Contato",
+      title: "Vamos falar sobre o projeto.",
+      body: "Se fizer sentido, eu respondo com contexto técnico, disponibilidade e próximos passos.",
+      subject: "Contato via portfolio",
+      nameFieldLabel: "Nome",
+      emailFieldLabel: "Email",
+      name: "Nome",
+      email: "E-mail",
+      message: "Resumo do projeto",
+      submit: "Enviar mensagem",
+      direct: "Contato direto",
+      directBody: "Se preferir, pode falar por e-mail ou LinkedIn.",
+      mail: "Escrever por e-mail",
+      linkedin: "Abrir LinkedIn",
+    },
+  },
+  rail: {
+    introLabel: "Intro",
+    introDescription: "Abertura",
+    logosLabel: "Logos",
+    logosDescription: "Clientes",
+    stackLabel: "Stack",
+    stackDescription: "Capacidades",
+    footerLabel: "Fim",
+    footerDescription: "Contato",
+    chapterHint: "Use o scroll ou clique nos números para navegar",
+  },
+};

@@ -4,6 +4,7 @@ import Lenis from "lenis";
 import { useEffect, useRef, useState } from "react";
 
 import { AnimatedChapterStage } from "@/components/portfolio/animated-chapter-stage";
+import { ChapterSection } from "@/components/portfolio/chapter-section";
 import { FooterCta } from "@/components/portfolio/footer-cta";
 import { HeroSection } from "@/components/portfolio/hero-section";
 import { LanguageSwitcher } from "@/components/portfolio/language-switcher";
@@ -13,6 +14,7 @@ import {
   clientLogos,
   intro,
   logoSection,
+  railCopy,
   sections,
   translate,
   type Locale,
@@ -119,13 +121,23 @@ export function PortfolioApp() {
       setActiveItems(nextActiveItems);
       setActiveSection(nextActiveSection);
 
-      const railCandidates = [
-        "intro",
-        "logos",
-        "stack",
-        ...sections.map((section) => section.id),
-        "footer",
-      ];
+      const chapterIsActive = sections.some((section) => {
+        const element = sectionRefs.current[section.id];
+        if (!element) {
+          return false;
+        }
+
+        const rect = element.getBoundingClientRect();
+        const threshold = window.innerHeight * 0.5;
+        return rect.top <= threshold && rect.bottom >= threshold;
+      });
+
+      if (chapterIsActive) {
+        setActiveRailItem(nextActiveSection);
+        return;
+      }
+
+      const railCandidates = ["intro", "logos", "stack", "footer"];
 
       let nextRailItem = "intro";
       let smallestDistance = Number.POSITIVE_INFINITY;
@@ -179,7 +191,16 @@ export function PortfolioApp() {
     const element = sectionRefs.current[sectionId];
     const section = sections.find((item) => item.id === sectionId);
 
-    if (!element || !section) {
+    if (!section) {
+      return;
+    }
+
+    if (!element) {
+      setActiveItems((previous) => ({
+        ...previous,
+        [sectionId]: index,
+      }));
+      setActiveSection(sectionId);
       return;
     }
 
@@ -211,63 +232,18 @@ export function PortfolioApp() {
   const railItems = [
     {
       id: "intro",
-      label:
-        locale === "pt"
-          ? "Intro"
-          : locale === "es"
-            ? "Intro"
-            : locale === "fr"
-              ? "Intro"
-              : locale === "it"
-                ? "Intro"
-                : "Intro",
-      description:
-        locale === "pt"
-          ? "Abertura"
-          : locale === "es"
-            ? "Apertura"
-            : locale === "fr"
-              ? "Ouverture"
-              : locale === "it"
-                ? "Apertura"
-                : "Opening",
+      label: translate(locale, railCopy.introLabel),
+      description: translate(locale, railCopy.introDescription),
     },
     {
       id: "logos",
-      label:
-        locale === "pt"
-          ? "Logos"
-          : locale === "es"
-            ? "Logos"
-            : locale === "fr"
-              ? "Logos"
-              : locale === "it"
-                ? "Loghi"
-                : "Logos",
-      description:
-        locale === "pt"
-          ? "Clientes"
-          : locale === "es"
-            ? "Clientes"
-            : locale === "fr"
-              ? "Clients"
-              : locale === "it"
-                ? "Clienti"
-                : "Clients",
+      label: translate(locale, railCopy.logosLabel),
+      description: translate(locale, railCopy.logosDescription),
     },
     {
       id: "stack",
-      label: "Stack",
-      description:
-        locale === "pt"
-          ? "Capacidades"
-          : locale === "es"
-            ? "Capacidades"
-            : locale === "fr"
-              ? "Capacités"
-              : locale === "it"
-                ? "Capacità"
-                : "Capabilities",
+      label: translate(locale, railCopy.stackLabel),
+      description: translate(locale, railCopy.stackDescription),
     },
     ...sections.map((section, index) => ({
       id: section.id,
@@ -276,26 +252,8 @@ export function PortfolioApp() {
     })),
     {
       id: "footer",
-      label:
-        locale === "pt"
-          ? "Fim"
-          : locale === "es"
-            ? "Fin"
-            : locale === "fr"
-              ? "Fin"
-              : locale === "it"
-                ? "Fine"
-                : "End",
-      description:
-        locale === "pt"
-          ? "Contato"
-          : locale === "es"
-            ? "Contacto"
-            : locale === "fr"
-              ? "Contact"
-              : locale === "it"
-                ? "Contatto"
-                : "Contact",
+      label: translate(locale, railCopy.footerLabel),
+      description: translate(locale, railCopy.footerDescription),
     },
   ];
 
@@ -325,36 +283,44 @@ export function PortfolioApp() {
   };
 
   return (
-    <main className="relative mx-auto w-[min(1380px,calc(100%-28px))] px-0 py-4 md:py-5">
+    <main className="relative mx-auto w-[min(1380px,calc(100%-20px))] px-0 py-3 sm:w-[min(1380px,calc(100%-28px))] sm:py-4 md:py-5">
       <div className="pointer-events-none fixed left-[-10rem] top-[8rem] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(255,106,169,0.42),transparent_66%)] blur-[110px]" />
       <div className="pointer-events-none fixed right-[-10rem] top-[18rem] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(95,230,224,0.28),transparent_66%)] blur-[110px]" />
 
-      <header className="relative z-10 flex flex-col gap-4 py-2 md:flex-row md:items-center md:justify-between">
-        <div>
-          <p className="text-[1.06rem] font-bold tracking-[0.08em] text-white">
-            Gustavo Bispo
-          </p>
-          <p className="mt-1 text-sm text-white/58">{translate(locale, intro.status)}</p>
-        </div>
+      <header className="relative z-10 rounded-[22px] border border-white/10 bg-[#ffffff05] px-4 py-4 shadow-[0_12px_36px_rgba(0,0,0,0.16)] sm:px-5 md:rounded-[26px] md:px-6">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-[1.02rem] font-bold tracking-[0.08em] text-white sm:text-[1.06rem]">
+              Gustavo Bispo
+            </p>
+            <p className="mt-1 max-w-[26rem] text-sm leading-6 text-white/58">
+              {translate(locale, intro.status)}
+            </p>
+          </div>
 
-        <div className="flex flex-wrap items-center gap-4">
-          <a
-            href="https://github.com/gustavolbs"
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm text-white/78 transition hover:text-white"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/gbispo-santos/"
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm text-white/78 transition hover:text-white"
-          >
-            LinkedIn
-          </a>
-          <LanguageSwitcher locale={locale} onChange={setLocale} />
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between lg:justify-end">
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="https://github.com/gustavolbs"
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm text-white/68 transition hover:text-white"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/gbispo-santos/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm text-white/68 transition hover:text-white"
+              >
+                LinkedIn
+              </a>
+            </div>
+            <div className="w-full sm:w-auto">
+              <LanguageSwitcher locale={locale} onChange={setLocale} />
+            </div>
+          </div>
         </div>
       </header>
 
@@ -396,7 +362,7 @@ export function PortfolioApp() {
         ref={(element) => {
           pageSectionRefs.current.intro = element;
         }}
-        className="relative z-10 mt-5"
+        className="relative z-10 mt-4 sm:mt-5"
       >
         <HeroSection locale={locale} />
       </div>
@@ -406,9 +372,9 @@ export function PortfolioApp() {
         ref={(element) => {
           pageSectionRefs.current.logos = element;
         }}
-        className="relative z-10 mt-6 rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,#241632_0%,#170f22_100%)] px-6 py-7 shadow-[0_26px_80px_rgba(0,0,0,0.24)] md:px-8"
+        className="relative z-10 mt-5 rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,#241632_0%,#170f22_100%)] px-5 py-6 shadow-[0_26px_80px_rgba(0,0,0,0.24)] sm:mt-6 sm:px-6 sm:py-7 md:rounded-[34px] md:px-8"
       >
-        <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/72">
               {translate(locale, logoSection.eyebrow)}
@@ -424,7 +390,7 @@ export function PortfolioApp() {
         </div>
 
         <div className="mt-6">
-          <LogoMarquee items={clientLogos} />
+          <LogoMarquee items={clientLogos} locale={locale} />
         </div>
       </section>
 
@@ -437,8 +403,8 @@ export function PortfolioApp() {
         <StackSection locale={locale} />
       </div>
 
-      <section className="relative z-10 mt-7">
-        <div className="sticky top-0 flex min-h-screen items-center">
+      <section className="relative z-10 mt-6 sm:mt-7">
+        <div className="hidden min-h-screen items-center xl:sticky xl:top-0 xl:flex">
           <AnimatedChapterStage
             locale={locale}
             section={currentSection}
@@ -447,7 +413,20 @@ export function PortfolioApp() {
           />
         </div>
 
-        <div aria-hidden="true" className="pointer-events-none">
+        <div className="space-y-5 xl:hidden">
+          {sections.map((section) => (
+            <ChapterSection
+              key={section.id}
+              locale={locale}
+              section={section}
+              activeIndex={activeItems[section.id] ?? 0}
+              onSelectItem={handleSelectItem}
+              mobile
+            />
+          ))}
+        </div>
+
+        <div aria-hidden="true" className="pointer-events-none hidden xl:block">
           {sections.map((section) => (
             <div
               key={section.id}
@@ -468,7 +447,7 @@ export function PortfolioApp() {
         ref={(element) => {
           pageSectionRefs.current.footer = element;
         }}
-        className="relative z-10 mt-10"
+        className="relative z-10 mt-8 sm:mt-10"
       >
         <FooterCta locale={locale} />
       </div>
