@@ -1,3 +1,4 @@
+import { PanelCard, SectionEyebrow } from "@/components/portfolio/ui";
 import type { Locale } from "@/lib/portfolio-content";
 import { stackGroups, stackSection, translate } from "@/lib/portfolio-content";
 
@@ -51,18 +52,18 @@ const stackStyles: Record<
 
 export function StackSection({ locale }: StackSectionProps) {
   return (
-    <section className="overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,#1d1128_0%,#120d1a_100%)] px-5 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] md:px-7 md:py-7">
+    <PanelCard className="overflow-hidden rounded-[34px] bg-[linear-gradient(180deg,#1d1128_0%,#120d1a_100%)] px-5 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] md:px-7 md:py-7">
       <div className="grid gap-5 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:items-end">
         <div className="max-w-[42rem]">
-          <span className="inline-flex rounded-full border border-white/10 bg-[#ffffff08] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/72">
+          <SectionEyebrow className="bg-[#ffffff08]">
             {translate(locale, stackSection.eyebrow)}
-          </span>
+          </SectionEyebrow>
           <h2 className="mt-4 max-w-[14ch] text-[clamp(1.9rem,4vw,3.9rem)] font-medium leading-[0.92] tracking-[-0.07em] text-white">
             {translate(locale, stackSection.title)}
           </h2>
         </div>
 
-        <div className="rounded-[28px] border border-white/10 bg-[linear-gradient(135deg,#2f1639_0%,#191426_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] md:p-5">
+        <PanelCard className="rounded-[28px] bg-[linear-gradient(135deg,#2f1639_0%,#191426_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] md:p-5">
           <div className="flex items-center gap-3">
             <span className="h-2.5 w-2.5 rounded-full bg-[#ff9b68]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#68d6ff]" />
@@ -83,7 +84,7 @@ export function StackSection({ locale }: StackSectionProps) {
               ),
             )}
           </div>
-        </div>
+        </PanelCard>
       </div>
 
       <div className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-2">
@@ -161,6 +162,6 @@ export function StackSection({ locale }: StackSectionProps) {
           );
         })}
       </div>
-    </section>
+    </PanelCard>
   );
 }

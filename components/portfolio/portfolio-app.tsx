@@ -7,13 +7,11 @@ import { AnimatedChapterStage } from "@/components/portfolio/animated-chapter-st
 import { ChapterSection } from "@/components/portfolio/chapter-section";
 import { FooterCta } from "@/components/portfolio/footer-cta";
 import { HeroSection } from "@/components/portfolio/hero-section";
-import { LanguageSwitcher } from "@/components/portfolio/language-switcher";
-import { LogoMarquee } from "@/components/portfolio/logo-marquee";
+import { LogoSection } from "@/components/portfolio/logo-section";
+import { PageRail } from "@/components/portfolio/page-rail";
+import { PortfolioHeader } from "@/components/portfolio/portfolio-header";
 import { StackSection } from "@/components/portfolio/stack-section";
 import {
-  clientLogos,
-  intro,
-  logoSection,
   railCopy,
   sections,
   translate,
@@ -287,76 +285,12 @@ export function PortfolioApp() {
       <div className="pointer-events-none fixed left-[-10rem] top-[8rem] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(255,106,169,0.42),transparent_66%)] blur-[110px]" />
       <div className="pointer-events-none fixed right-[-10rem] top-[18rem] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(95,230,224,0.28),transparent_66%)] blur-[110px]" />
 
-      <header className="relative z-10 rounded-[22px] border border-white/10 bg-[#ffffff05] px-4 py-4 shadow-[0_12px_36px_rgba(0,0,0,0.16)] sm:px-5 md:rounded-[26px] md:px-6">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <p className="text-[1.02rem] font-bold tracking-[0.08em] text-white sm:text-[1.06rem]">
-              Gustavo Bispo
-            </p>
-            <p className="mt-1 max-w-[26rem] text-sm leading-6 text-white/58">
-              {translate(locale, intro.status)}
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between lg:justify-end">
-            <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="https://github.com/gustavolbs"
-                target="_blank"
-                rel="noreferrer"
-                className="text-sm text-white/68 transition hover:text-white"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com/in/gbispo-santos/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-sm text-white/68 transition hover:text-white"
-              >
-                LinkedIn
-              </a>
-            </div>
-            <div className="w-full sm:w-auto">
-              <LanguageSwitcher locale={locale} onChange={setLocale} />
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <aside className="fixed right-6 top-1/2 z-20 hidden -translate-y-1/2 xl:block">
-        <div className="rounded-[24px] border border-white/10 bg-[#17101f]/88 p-3 shadow-[0_20px_50px_rgba(0,0,0,0.28)] backdrop-blur-sm">
-          <div className="mb-3 px-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/36">
-            Navigate
-          </div>
-          <div className="grid gap-2">
-            {railItems.map((item) => {
-              const isActive = item.id === activeRailItem;
-
-              return (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => handleSelectRailItem(item.id)}
-                  className={[
-                    "flex items-center gap-3 rounded-2xl px-3 py-3 text-left transition",
-                    isActive
-                      ? "bg-white/10 text-white"
-                      : "text-white/42 hover:bg-white/[0.05] hover:text-white/74",
-                  ].join(" ")}
-                >
-                  <span className="min-w-[1.6rem] text-xs font-extrabold tracking-[0.18em] text-[#ffb15d]">
-                    {item.label}
-                  </span>
-                  <span className="max-w-[9rem] text-[11px] font-semibold uppercase tracking-[0.18em] text-white/58">
-                    {item.description}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </aside>
+      <PortfolioHeader locale={locale} onLocaleChange={setLocale} />
+      <PageRail
+        items={railItems}
+        activeId={activeRailItem}
+        onSelect={handleSelectRailItem}
+      />
 
       <div
         ref={(element) => {
@@ -367,32 +301,15 @@ export function PortfolioApp() {
         <HeroSection locale={locale} />
       </div>
 
-      <section
+      <div
         id="chapters"
         ref={(element) => {
           pageSectionRefs.current.logos = element;
         }}
-        className="relative z-10 mt-5 rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,#241632_0%,#170f22_100%)] px-5 py-6 shadow-[0_26px_80px_rgba(0,0,0,0.24)] sm:mt-6 sm:px-6 sm:py-7 md:rounded-[34px] md:px-8"
+        className="relative z-10 mt-5 sm:mt-6"
       >
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/72">
-              {translate(locale, logoSection.eyebrow)}
-            </span>
-            <h2 className="mt-4 max-w-[14ch] text-[clamp(1.9rem,3.4vw,3.2rem)] font-medium leading-[0.94] tracking-[-0.06em] text-white">
-              {translate(locale, logoSection.title)}
-            </h2>
-          </div>
-
-          <p className="max-w-[38ch] text-sm leading-7 text-white/66 md:text-right">
-            {translate(locale, logoSection.body)}
-          </p>
-        </div>
-
-        <div className="mt-6">
-          <LogoMarquee items={clientLogos} locale={locale} />
-        </div>
-      </section>
+        <LogoSection locale={locale} />
+      </div>
 
       <div
         ref={(element) => {

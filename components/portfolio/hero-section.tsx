@@ -1,3 +1,4 @@
+import { PanelCard, SectionEyebrow, SurfaceCard } from "@/components/portfolio/ui";
 import type { Locale } from "@/lib/portfolio-content";
 import { heroMeta, intro, translate } from "@/lib/portfolio-content";
 
@@ -7,16 +8,16 @@ type HeroSectionProps = {
 
 export function HeroSection({ locale }: HeroSectionProps) {
   return (
-    <section className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,#181021_0%,#120b19_100%)] px-5 py-6 shadow-[0_24px_72px_rgba(0,0,0,0.24)] sm:px-6 sm:py-7 md:rounded-[38px] md:px-8 md:py-9">
+    <PanelCard className="relative overflow-hidden rounded-[30px] bg-[linear-gradient(180deg,#181021_0%,#120b19_100%)] px-5 py-6 sm:px-6 sm:py-7 md:rounded-[38px] md:px-8 md:py-9">
       <div className="pointer-events-none absolute right-[-4rem] top-[-3rem] h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(255,168,99,0.14),transparent_72%)] blur-3xl sm:h-56 sm:w-56" />
       <div className="pointer-events-none absolute bottom-[-4rem] left-[-3rem] h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(102,204,255,0.12),transparent_72%)] blur-3xl sm:h-56 sm:w-56" />
 
       <div className="relative grid gap-6 lg:gap-8 xl:grid-cols-[minmax(0,1fr)_320px] xl:items-end">
         <div className="min-w-0 max-w-[56rem]">
           <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
-            <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/72">
+            <SectionEyebrow>
               {translate(locale, heroMeta.eyebrow)}
-            </span>
+            </SectionEyebrow>
             <span className="max-w-[30rem] text-sm leading-6 text-white/42">
               {translate(locale, heroMeta.kicker)}
             </span>
@@ -52,35 +53,35 @@ export function HeroSection({ locale }: HeroSectionProps) {
         </div>
 
         <aside className="grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
-          <div className="rounded-[28px] border border-white/10 bg-[linear-gradient(145deg,#2f1936_0%,#18101d_100%)] p-5">
+          <PanelCard className="rounded-[28px] bg-[linear-gradient(145deg,#2f1936_0%,#18101d_100%)] p-5">
               <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/42">
                 {translate(locale, heroMeta.valueLabel)}
               </div>
               <div className="mt-3 text-[1.3rem] font-medium leading-[1.02] tracking-[-0.05em] text-white sm:text-[1.45rem]">
                 {translate(locale, heroMeta.valueValue)}
               </div>
-          </div>
+          </PanelCard>
 
           <div className="grid gap-3 sm:grid-cols-1">
-            <div className="rounded-[24px] border border-white/10 bg-white/[0.035] p-4">
+            <SurfaceCard className="p-4">
               <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/42">
                 {translate(locale, heroMeta.locationLabel)}
               </div>
               <div className="mt-3 text-lg font-semibold tracking-[-0.04em] text-white">
                 {translate(locale, heroMeta.locationValue)}
               </div>
-            </div>
-            <div className="rounded-[24px] border border-white/10 bg-white/[0.035] p-4">
+            </SurfaceCard>
+            <SurfaceCard className="p-4">
               <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/42">
                 {translate(locale, heroMeta.availabilityLabel)}
               </div>
               <div className="mt-3 text-lg font-semibold tracking-[-0.04em] text-white">
                 {translate(locale, heroMeta.availabilityValue)}
               </div>
-            </div>
+            </SurfaceCard>
           </div>
         </aside>
       </div>
-    </section>
+    </PanelCard>
   );
 }
