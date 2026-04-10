@@ -154,14 +154,14 @@ export function ChapterSection({
       <div className="grid w-full min-w-0 gap-5 xl:grid-cols-[minmax(0,1.04fr)_minmax(360px,0.88fr)]">
         <SceneCard section={section} sceneRef={sceneRef} />
 
-        <article className="grid h-[320px] min-w-0 overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,#321f45_0%,#261734_100%)] shadow-[0_24px_64px_rgba(0,0,0,0.22)] md:h-[420px] xl:grid-cols-[62px_minmax(0,1fr)] xl:h-[560px]">
+        <article className="grid h-[320px] min-w-0 overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,#321f45_0%,#261734_100%)] shadow-[0_24px_64px_rgba(0,0,0,0.22)] md:h-[420px] xl:grid-cols-[62px_minmax(0,1fr)] xl:h-[620px]">
           <ChapterRail
             section={section}
             activeIndex={activeIndex}
             onSelectItem={onSelectItem}
           />
 
-          <div className="relative flex min-h-0 flex-col p-5 md:p-6">
+          <div className="relative flex min-h-0 flex-col p-5 md:p-6 xl:p-7">
             <div
               className={cx(
                 "pointer-events-none absolute right-4 top-2 text-[4.5rem] font-extrabold tracking-[-0.08em] text-white/[0.035] md:text-[6rem] xl:text-[7rem]",
