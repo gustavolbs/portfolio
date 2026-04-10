@@ -35,7 +35,7 @@ export function SceneCard({ section, compact = false, sceneRef }: SceneCardProps
         "relative min-w-0 overflow-hidden border border-white/10 bg-[#1c1226] shadow-[0_26px_70px_rgba(0,0,0,0.24)]",
         compact
           ? "h-[280px] rounded-[28px] sm:h-[340px]"
-          : "h-[320px] rounded-[30px] md:h-[420px] xl:h-[560px]",
+          : "h-[320px] rounded-[30px] md:h-[420px] xl:h-[620px]",
       )}
     >
       <div className={cx("absolute inset-0", getSceneBackgroundClass(section.kind))} />
@@ -95,7 +95,7 @@ export function ChapterHeader({
           "max-w-[14ch] font-medium leading-[0.92] tracking-[-0.06em] text-white",
           compact
             ? "mt-4 text-[2rem] sm:text-[2.3rem]"
-            : "mt-4 text-[clamp(1.75rem,3vw,3rem)]",
+            : "mt-4 text-[clamp(1.65rem,2.6vw,2.7rem)]",
         )}
       >
         {translate(locale, section.title)}
@@ -103,7 +103,7 @@ export function ChapterHeader({
       <p
         className={cx(
           "mt-3 text-white/66",
-          compact ? "text-sm leading-7" : "max-w-[50ch] text-sm leading-7",
+          compact ? "text-sm leading-7" : "max-w-[52ch] text-[0.95rem] leading-[1.9]",
         )}
       >
         {translate(locale, section.body)}
@@ -167,12 +167,12 @@ export function ActiveItemCard({
       <h3
         className={cx(
           "mt-3 font-semibold leading-tight tracking-[-0.04em] text-white",
-          compact ? "text-[1.45rem]" : "text-[clamp(1.3rem,2vw,2rem)]",
+          compact ? "text-[1.45rem]" : "text-[clamp(1.2rem,1.7vw,1.75rem)]",
         )}
       >
         {translate(locale, activeItem.title)}
       </h3>
-      <p className="mt-3 text-sm leading-7 text-white/76">
+      <p className="mt-3 text-[0.94rem] leading-[1.85] text-white/76">
         {translate(locale, activeItem.body)}
       </p>
     </div>
