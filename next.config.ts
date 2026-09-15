@@ -1,13 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "media.licdn.com",
-      },
-    ],
+  reactStrictMode: true,
+  async redirects() {
+    return [
+      "/work/:path*",
+      "/about",
+      "/craft",
+      "/notes",
+      "/colophon",
+      "/contact",
+      "/_design",
+    ].map((source) => ({
+      source,
+      destination: "/",
+      permanent: true,
+    }));
   },
 };
 

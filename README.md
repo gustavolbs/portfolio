@@ -1,38 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gustavo Bispo portfolio
 
-## Getting Started
+A single-page portfolio for a Senior Frontend & Product Engineer. The interface itself demonstrates responsive systems, browser-native interaction, accessibility and product judgement.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Quality checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run typecheck
+npm run lint
+npm run build
+npm run axe
+npm run smoke
+```
 
-## Learn More
+`axe` and `smoke` use `http://localhost:3000` by default. Point them to another running server with `TEST_BASE_URL`, for example:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+TEST_BASE_URL=http://localhost:3002 npm run axe
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Active implementation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/page.tsx` renders the portfolio.
+- `src/components/site/live-layout.tsx` owns the native width interaction and page structure.
+- `src/components/site/live-layout.module.css` owns the responsive visual system and container queries.
+- `PRODUCT.md` defines the audience and privacy boundary.
+- `DESIGN.md` and `DESIGN-CONTRACT.md` document the visual and interaction rules.
 
-## Deploy on Vercel
+Legacy content routes permanently redirect to `/`. They do not render or import the old case studies.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Privacy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# portfolio
-# portfolio
+The public page uses selected employer names and broad titles only. Employer architecture, internal tooling, customers, scale, metrics and project narratives are deliberately excluded.
+
+## Stack
+
+Next.js 16, React 19, TypeScript, CSS Modules, `next/font`, Playwright and axe-core. No animation or UI framework is required.
+
+## License
+
+Private.
