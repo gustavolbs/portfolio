@@ -2,6 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "czipioneacmyqkjdkuaz.supabase.co",
+        pathname: "/storage/v1/object/public/showcase/**",
+      },
+    ],
+  },
   async redirects() {
     return [
       "/work/:path*",
