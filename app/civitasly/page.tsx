@@ -20,7 +20,7 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const MEDIA = "https://czipioneacmyqkjdkuaz.supabase.co/storage/v1/object/public/showcase/civitasly";
+const MEDIA = "https://media.civitasly.com/showcase/civitasly";
 
 export const metadata: Metadata = {
   title: "Civitasly case study",
