@@ -6,8 +6,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "czipioneacmyqkjdkuaz.supabase.co",
-        pathname: "/storage/v1/object/public/showcase/**",
+        hostname: "media.civitasly.com",
+        pathname: "/showcase/**",
       },
     ],
   },
