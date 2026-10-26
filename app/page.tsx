@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { LiveLayout } from "@/components/site/live-layout";
+import { Home } from "@/components/site/home";
 
 export const metadata: Metadata = {
-  title: "Senior Frontend & Product Engineer",
+  title: "Senior Frontend, Product & Forward Deployed Engineer",
   description:
     "Senior frontend engineering expressed through resilient, accessible interfaces.",
 };
 
 export default function Page() {
-  return <LiveLayout />;
+  return <Home />;
 }

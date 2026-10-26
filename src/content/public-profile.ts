@@ -5,6 +5,6 @@ export const publicProfile = {
   mailto: "mailto:gustavo.luiz.bispo.santos@gmail.com",
   github: "https://github.com/gustavolbs",
   linkedin: "https://www.linkedin.com/in/gbispo-santos",
-  role: "Senior Frontend & Product Engineer",
+  role: "Senior Frontend, Product & Forward Deployed Engineer",
   years: "6+",
 } as const;

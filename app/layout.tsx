@@ -1,13 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Inter_Tight, JetBrains_Mono, Magra } from "next/font/google";
+import { Funnel_Display, Funnel_Sans, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
 
-const interTight = Inter_Tight({
+const funnelSans = Funnel_Sans({
   subsets: ["latin"],
-  variable: "--font-inter-tight",
+  variable: "--font-funnel-sans",
   display: "swap",
   fallback: ["ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+  adjustFontFallback: true,
+});
+
+const funnelDisplay = Funnel_Display({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-funnel-display",
+  display: "swap",
+  fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
   adjustFontFallback: true,
 });
 
@@ -19,21 +28,14 @@ const jetbrains = JetBrains_Mono({
   adjustFontFallback: true,
 });
 
-const magra = Magra({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-magra",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://gustavobispo.com"),
   title: {
-    default: "Gustavo Bispo, Senior Frontend & Product Engineer",
+    default: "Gustavo Bispo, Senior Frontend, Product & Forward Deployed Engineer",
     template: "%s · Gustavo Bispo",
   },
   description:
-    "Senior Frontend & Product Engineer turning product complexity into clear, resilient interfaces.",
+    "Senior Frontend, Product & Forward Deployed Engineer turning product complexity into clear, resilient interfaces.",
   applicationName: "Gustavo Bispo",
   authors: [{ name: "Gustavo Bispo" }],
   creator: "Gustavo Bispo",
@@ -42,16 +44,16 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Gustavo Bispo",
     locale: "en_US",
-    title: "Gustavo Bispo, Senior Frontend & Product Engineer",
+    title: "Gustavo Bispo, Senior Frontend, Product & Forward Deployed Engineer",
     description:
-      "Senior Frontend & Product Engineer turning product complexity into clear, resilient interfaces.",
+      "Senior Frontend, Product & Forward Deployed Engineer turning product complexity into clear, resilient interfaces.",
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gustavo Bispo, Senior Frontend & Product Engineer",
+    title: "Gustavo Bispo, Senior Frontend, Product & Forward Deployed Engineer",
     description:
-      "Senior Frontend & Product Engineer turning product complexity into clear, resilient interfaces.",
+      "Senior Frontend, Product & Forward Deployed Engineer turning product complexity into clear, resilient interfaces.",
   },
   robots: { index: true, follow: true },
   formatDetection: { email: false, telephone: false, address: false },
@@ -60,7 +62,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  colorScheme: "light",
+  colorScheme: "dark",
+  themeColor: "#0a0c0d",
 };
 
 export default function RootLayout({
@@ -71,8 +74,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${interTight.variable} ${jetbrains.variable} ${magra.variable}`}
+      className={`${funnelSans.variable} ${funnelDisplay.variable} ${jetbrains.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body>
         <a href="#main" className="skip-link">
           Skip to content

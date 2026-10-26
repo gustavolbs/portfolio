@@ -4,7 +4,7 @@ import { join } from "node:path";
 
 import { publicProfile as profile } from "@/content/public-profile";
 
-export const alt = `${profile.shortName}, Senior Frontend & Product Engineer`;
+export const alt = `${profile.shortName}, Senior Frontend, Product & Forward Deployed Engineer`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
