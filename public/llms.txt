@@ -1,0 +1,12 @@
+# Gustavo Bispo
+
+> Senior Frontend, Product & Forward Deployed Engineer, 6+ years with React, TypeScript and Next.js. Founder of Linear Craft Technology. Based in Brazil (UTC-3).
+
+## Pages
+- [Home](https://iam.linearcraft.dev/): profile, focus areas and selected work.
+- [Civitasly case study](https://iam.linearcraft.dev/civitasly): product, design system, mobile app, web platform and ad pipeline for a real estate agent app.
+
+## Elsewhere
+- [Linear Craft Technology](https://www.linearcraft.dev): the company he founded; software designed, built and shipped end to end.
+- [GitHub](https://github.com/gustavolbs)
+- [LinkedIn](https://www.linkedin.com/in/gbispo-santos)

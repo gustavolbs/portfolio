@@ -79,7 +79,7 @@ export default async function Image() {
           }}
         >
           <span>6+ years / React / TypeScript / Next.js</span>
-          <span>gustavobispo.com</span>
+          <span>iam.linearcraft.dev</span>
         </div>
       </div>
     ),

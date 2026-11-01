@@ -29,7 +29,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gustavobispo.com"),
+  metadataBase: new URL("https://iam.linearcraft.dev"),
   title: {
     default: "Gustavo Bispo, Senior Frontend, Product & Forward Deployed Engineer",
     template: "%s · Gustavo Bispo",

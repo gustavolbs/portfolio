@@ -1,0 +1,172 @@
+/* =========================================================================
+   Portfolio tokens. The single source of truth for design values.
+
+   Light is the no-JavaScript default (bare :root).
+   Dark is the authored default applied by the inline script in layout.tsx
+   when the stored or system preference is dark.
+   ========================================================================= */
+
+:root {
+  --bg:              oklch(0.985 0.003 95);
+  --bg-subtle:       oklch(0.965 0.004 95);
+  --surface:         oklch(0.945 0.005 95);
+  --surface-hover:   oklch(0.925 0.005 95);
+  --border:          oklch(0.885 0.006 95);
+  --border-strong:   oklch(0.800 0.008 95);
+  --border-interactive: oklch(0.60 0.008 95);
+
+  --text:            oklch(0.22 0.010 270);
+  --text-secondary:  oklch(0.42 0.010 270);
+  --text-tertiary:   oklch(0.48 0.010 270);
+
+  --accent:          oklch(0.53 0.150 55);
+  --accent-hover:    oklch(0.47 0.150 55);
+  --accent-fg:       oklch(0.99 0.005 95);
+  --focus:           oklch(0.53 0.150 55);
+
+  --shadow-1:
+    0 1px 2px oklch(0 0 0 / 0.06),
+    0 8px 24px -16px oklch(0 0 0 / 0.20);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:              oklch(0.15 0.005 270);
+    --bg-subtle:       oklch(0.18 0.006 270);
+    --surface:         oklch(0.21 0.007 270);
+    --surface-hover:   oklch(0.24 0.008 270);
+    --border:          oklch(0.28 0.008 270);
+    --border-strong:   oklch(0.38 0.010 270);
+    --border-interactive: oklch(0.55 0.010 270);
+
+    --text:            oklch(0.96 0.003 270);
+    --text-secondary:  oklch(0.75 0.006 270);
+    --text-tertiary:   oklch(0.64 0.008 270);
+
+    --accent:          oklch(0.74 0.150 62);
+    --accent-hover:    oklch(0.79 0.150 62);
+    --accent-fg:       oklch(0.18 0.020 62);
+    --focus:           oklch(0.80 0.130 62);
+
+    --shadow-1:
+      0 1px 2px oklch(0 0 0 / 0.40),
+      0 8px 24px -16px oklch(0 0 0 / 0.60);
+
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg:              oklch(0.15 0.005 270);
+  --bg-subtle:       oklch(0.18 0.006 270);
+  --surface:         oklch(0.21 0.007 270);
+  --surface-hover:   oklch(0.24 0.008 270);
+  --border:          oklch(0.28 0.008 270);
+  --border-strong:   oklch(0.38 0.010 270);
+  --border-interactive: oklch(0.55 0.010 270);
+
+  --text:            oklch(0.96 0.003 270);
+  --text-secondary:  oklch(0.75 0.006 270);
+  --text-tertiary:   oklch(0.64 0.008 270);
+
+  --accent:          oklch(0.74 0.150 62);
+  --accent-hover:    oklch(0.79 0.150 62);
+  --accent-fg:       oklch(0.18 0.020 62);
+  --focus:           oklch(0.80 0.130 62);
+
+  --shadow-1:
+    0 1px 2px oklch(0 0 0 / 0.40),
+    0 8px 24px -16px oklch(0 0 0 / 0.60);
+
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root {
+  --font-sans: var(--font-inter-tight), "Inter Tight", ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", ui-monospace, SFMono-Regular,
+    Menlo, Consolas, monospace;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --space-40: 160px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --container-max: 1180px;
+  --gutter-mobile: 24px;
+  --gutter-desktop: 40px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.30, 1);
+  --ease-standard: cubic-bezier(0.20, 0, 0, 1);
+  --dur-1: 120ms;
+  --dur-2: 180ms;
+  --dur-3: 260ms;
+  --dur-4: 400ms;
+
+  --display: 64px;
+  --display-lh: 0.98;
+  --display-tracking: -0.032em;
+  --display-weight: 500;
+
+  --h1: 44px;
+  --h1-lh: 1.06;
+  --h1-tracking: -0.026em;
+  --h1-weight: 500;
+
+  --h2: 32px;
+  --h2-lh: 1.16;
+  --h2-tracking: -0.020em;
+  --h2-weight: 500;
+
+  --h3: 22px;
+  --h3-lh: 1.30;
+  --h3-tracking: -0.014em;
+  --h3-weight: 500;
+
+  --body-lg: 18px;
+  --body-lg-lh: 1.60;
+  --body-lg-tracking: -0.008em;
+
+  --body: 16px;
+  --body-lh: 1.65;
+  --body-tracking: 0;
+
+  --small: 14px;
+  --small-lh: 1.50;
+
+  --meta: 12px;
+  --meta-lh: 1.40;
+  --meta-tracking: 0.045em;
+
+  --measure-body: 68ch;
+  --measure-prose: 62ch;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --display: 40px;
+    --h1: 32px;
+    --h2: 26px;
+    --h3: 20px;
+    --body-lg: 17px;
+    --gutter-desktop: var(--gutter-mobile);
+  }
+}
