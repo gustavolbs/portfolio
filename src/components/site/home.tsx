@@ -68,7 +68,7 @@ const lab = [
   { key: "formula", name: "Fio", icon: "/apps/formula-icon.webp", stage: 4, label: "screens", href: "/fio" },
   { key: "frasco", name: "Frasco", icon: "/apps/frasco-icon.webp", stage: 4, label: "screens" },
   { key: "cafune", name: "Cafuné", icon: "/apps/cafune-icon.webp", stage: 4, label: "screens" },
-  { key: "montei", name: "Montei", icon: "/apps/montei-icon.webp", stage: 4, label: "screens" },
+  { key: "montei", name: "Montei", icon: "/apps/montei-icon.webp", stage: 4, label: "screens", href: "/montei" },
 ] as const;
 
 const employers = [
