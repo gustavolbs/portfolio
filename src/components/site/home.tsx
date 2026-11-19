@@ -65,7 +65,7 @@ const apps: readonly App[] = [
 // Stage is the step reached in my seven-step app process (market, scope, visual, screens, architecture, tech, store).
 const lab = [
   { key: "beecorder", name: "Beecorder", icon: "/apps/beecorder-icon.webp", stage: 6, label: "building", href: "/beecorder" },
-  { key: "formula", name: "Fórmula", icon: "/apps/formula-icon.webp", stage: 4, label: "screens" },
+  { key: "formula", name: "Fio", icon: "/apps/formula-icon.webp", stage: 4, label: "screens", href: "/fio" },
   { key: "frasco", name: "Frasco", icon: "/apps/frasco-icon.webp", stage: 4, label: "screens" },
   { key: "cafune", name: "Cafuné", icon: "/apps/cafune-icon.webp", stage: 4, label: "screens" },
   { key: "montei", name: "Montei", icon: "/apps/montei-icon.webp", stage: 4, label: "screens" },
