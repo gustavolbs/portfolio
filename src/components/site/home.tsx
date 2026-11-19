@@ -48,7 +48,7 @@ const apps: readonly App[] = [
     chips: ["iOS · Android · Web", "React Native"],
     icon: "/apps/ipcatole-icon.webp",
     shot: "/apps/ipcatole.webp",
-    href: "https://ipcatole.org.br",
+    href: "/ipcatole",
     tint: "#efe9df",
   },
   {
