@@ -1,201 +1,319 @@
+import Image from "next/image";
+
+import { homeCopy, type HomeCopy, type Lang } from "@/content/home-copy";
 import { publicProfile as profile } from "@/content/public-profile";
 
-import { ScrollLine } from "./scroll-line";
-import { Specimen } from "./specimen";
+import { CopyEmail } from "./copy-email";
+import { Inspector } from "./inspector";
+import { RevealObserver } from "./reveal-observer";
 import styles from "./home.module.css";
 
+type AppKey = keyof HomeCopy["apps"]["pitch"];
+
+type App = {
+  key: AppKey;
+  name: string;
+  chips: readonly string[];
+  icon: string;
+  iconWidth?: number;
+  shot: string;
+  href?: string;
+  tint: string;
+};
+
+const featured: App = {
+  key: "medusa",
+  name: "Medusa",
+  chips: ["tvOS", "SwiftUI"],
+  icon: "/apps/medusa-icon.webp",
+  iconWidth: 93, // tvOS app icons are 5:3, not square
+  shot: "/apps/medusa.webp",
+  href: "https://medusa.linearcraft.dev",
+  tint: "#e7e9f2",
+};
+
+const apps: readonly App[] = [
+  {
+    key: "civitasly",
+    name: "Civitasly",
+    chips: ["iOS · Android · Web", "Expo"],
+    icon: "/apps/civitasly-icon.webp",
+    shot: "/apps/civitasly.webp",
+    href: "/civitasly",
+    tint: "#e4ece5",
+  },
+  {
+    key: "ipcatole",
+    name: "IP Catolé",
+    chips: ["iOS · Android · Web", "React Native"],
+    icon: "/apps/ipcatole-icon.webp",
+    shot: "/apps/ipcatole.webp",
+    href: "https://ipcatole.org.br",
+    tint: "#efe9df",
+  },
+  {
+    key: "urbanify",
+    name: "Urbanify",
+    chips: ["iOS · Android · Web", "Expo · Hono"],
+    icon: "/apps/urbanify-icon.webp",
+    shot: "/apps/urbanify.webp",
+    href: "https://urbanify.com.br",
+    tint: "#e3ebf4",
+  },
+];
+
+// Stage is the step reached in my seven-step app process (market, scope, visual, screens, architecture, tech, store).
+const lab = [
+  { key: "beecorder", name: "Beecorder", icon: "/apps/beecorder-icon.webp", stage: 6, label: "building" },
+  { key: "formula", name: "Fórmula", icon: "/apps/formula-icon.webp", stage: 4, label: "screens" },
+  { key: "frasco", name: "Frasco", icon: "/apps/frasco-icon.webp", stage: 4, label: "screens" },
+  { key: "cafune", name: "Cafuné", icon: "/apps/cafune-icon.webp", stage: 4, label: "screens" },
+  { key: "montei", name: "Montei", icon: "/apps/montei-icon.webp", stage: 4, label: "screens" },
+] as const;
+
 const employers = [
-  { company: "Live Nation Entertainment", role: "Senior Frontend Engineer", period: "2024 / Now" },
-  { company: "Nivells", role: "Tech Lead and Senior Frontend Engineer", period: "2024 / 2025" },
-  { company: "Leaf Agriculture", role: "Senior Frontend Engineer", period: "2023 / 2024" },
-  { company: "Warren Brasil", role: "Frontend Engineer, Mid to Senior", period: "2021 / 2022" },
-  { company: "Evermart", role: "Frontend Engineer, Technical Leadership", period: "2020 / 2021" },
+  { company: "Live Nation Entertainment", role: "senior", from: "2024", to: null },
+  { company: "Nivells", role: "lead", from: "2024", to: "2025" },
+  { company: "Leaf Agriculture", role: "senior", from: "2023", to: "2024" },
+  { company: "Warren Brasil", role: "midSenior", from: "2021", to: "2022" },
+  { company: "Evermart", role: "techLead", from: "2020", to: "2021" },
 ] as const;
 
 const credentials = [
-  { title: "Master's in Web Development", institution: "Universitat Oberta de Catalunya", year: "Expected 2027" },
-  { title: "MBA in Software Architecture", institution: "Full Cycle", year: "2025" },
-  { title: "B.S. in Computer Science", institution: "UFCG", year: "2023" },
-  { title: "Claude Certified Architect and applied AI certifications", institution: "Anthropic", year: "2026" },
+  { key: "masters", institution: "Universitat Oberta de Catalunya", year: null },
+  { key: "mba", institution: "Full Cycle", year: "2025" },
+  { key: "bs", institution: "UFCG", year: "2023" },
+  { key: "claude", institution: "Anthropic", year: "2026" },
 ] as const;
 
-const hierarchy = [
-  { label: "Leads", text: "The one thing the person came to do." },
-  { label: "Follows", text: "The context that makes the decision easy." },
-  { label: "Moves", text: "Everything that can reflow without losing meaning." },
-] as const;
+const external = (href?: string) => (href?.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {});
 
-const quality = [
-  { label: "Semantic HTML", text: "Structure first, styling second." },
-  { label: "Keyboard paths", text: "Every control reachable and visible." },
-  { label: "Container queries", text: "Components that respond to their own space." },
-  { label: "Reduced motion", text: "Full parity, not a degraded fallback." },
-] as const;
-
-const arrow = (
-  <svg className={styles.arrow} viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M5 12h14M13 6l6 6-6 6" />
-  </svg>
-);
-
-export function Home() {
-  return (
+function AppCard({ app, t, featured: isFeatured = false }: { app: App; t: HomeCopy; featured?: boolean }) {
+  const body = (
     <>
-      <ScrollLine />
-      <header className={styles.bar} data-bar>
-        <a className={styles.brand} href="#main" aria-label="Gustavo Bispo, home">
-          <svg className={styles.mark} viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M6 3v13a5 5 0 0 0 5 5h10" />
-            <circle cx="6" cy="3" r="2" />
-          </svg>
-          <span>Gustavo Bispo</span>
-        </a>
-        <nav aria-label="Primary navigation">
-          <a className={styles.nl} href="#frame">Frame</a>
-          <a className={styles.nl} href="#build">Build</a>
-          <a className={styles.nl} href="#ship">Ship</a>
-          <a className={styles.nl} href="#lead">Lead</a>
-          <a className={`${styles.nl} ${styles.keep}`} href="#contact">Contact</a>
-        </nav>
+      <div className={styles.appText}>
+        <Image className={styles.icon} src={app.icon} alt="" width={app.iconWidth ?? 56} height={56} />
+        <h3>{app.name}</h3>
+        <p>{t.apps.pitch[app.key]}</p>
+        <ul className={styles.chips} aria-label={t.apps.chipsAria}>
+          {app.chips.map((c) => (
+            <li key={c}>{c}</li>
+          ))}
+        </ul>
+      </div>
+      {isFeatured ? (
+        <div className={styles.tv}>
+          <Image src={app.shot} alt={`${app.name} ${t.apps.tvAlt}`} width={1200} height={675} loading="lazy" />
+        </div>
+      ) : (
+        <div className={styles.phone}>
+          <Image src={app.shot} alt={`${app.name}, ${t.apps.screenAlt}`} width={600} height={1304} loading="lazy" />
+        </div>
+      )}
+      {app.href && (
+        <span className={styles.go} aria-hidden="true">
+          →
+        </span>
+      )}
+    </>
+  );
+  const className = `${styles.app} ${isFeatured ? styles.feature : ""} reveal`;
+  const style = { background: app.tint };
+  return app.href ? (
+    <a className={className} style={style} href={app.href} {...external(app.href)}>
+      {body}
+    </a>
+  ) : (
+    <article className={className} style={style}>
+      {body}
+    </article>
+  );
+}
+
+export function Home({ lang = "en" }: { lang?: Lang }) {
+  const t = homeCopy[lang];
+  return (
+    <div lang={t.htmlLang}>
+      <RevealObserver />
+      <header className={styles.bar}>
+        <div className={styles.wrap}>
+          <a className={styles.brand} href="#main" aria-label={t.brandAria}>
+            <svg viewBox="0 0 18 22" aria-hidden="true">
+              <path d="M3 2v15a3 3 0 0 0 3 3h10" />
+              <circle cx="3" cy="2.4" r="2.2" />
+            </svg>
+            gustavo bispo
+          </a>
+          <nav aria-label={t.nav.aria}>
+            <a href="#apps">{t.nav.apps}</a>
+            <a href="#how">{t.nav.how}</a>
+            <a href="#experience">{t.nav.xp}</a>
+          </nav>
+          <div className={styles.actions}>
+            <a className={styles.lang} href={t.switchHref} hrefLang={t.switchLang} lang={t.switchLang} aria-label={t.switchAria}>
+              {t.switchLabel}
+            </a>
+            <a className={styles.pill} href="#contact">
+              {t.talk} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
       </header>
 
       <main id="main">
-        <section className={styles.hero} aria-labelledby="hero-title">
-          <div className={styles.heroIn}>
-            <p className={styles.role}>{profile.role}</p>
+        <section className={`${styles.wrap} ${styles.hero}`} aria-labelledby="hero-title">
+          <div>
+            <p className={styles.role}>{t.role}</p>
             <h1 id="hero-title">
-              I engineer interfaces that survive production<span className={styles.stop} data-start>.</span>
+              {t.h1[0]} <Inspector>{t.h1[1]}</Inspector> {t.h1[2]}<span className={styles.dot}>.</span>
             </h1>
-            <p className={styles.sub}>
-              {profile.years} years across UX judgment, frontend systems and production delivery,
-              embedded with the team and the problem. React, TypeScript and Next.js, plus LLMs
-              where they earn their place.
+            <p className={styles.lede}>
+              {profile.years} {t.lede}
             </p>
-            <div className={styles.actions}>
-              <a className={styles.btn} href={profile.mailto}>Email me</a>
-              <a className={styles.ulink} href={profile.linkedin} rel="noreferrer" target="_blank">LinkedIn</a>
-              <a className={styles.ulink} href={profile.github} rel="noreferrer" target="_blank">GitHub</a>
+            <div className={styles.links}>
+              <a className={styles.pill} href={profile.mailto}>{t.emailMe}</a>
+              <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+            <p className={styles.hint} aria-hidden="true">{t.hint}</p>
+          </div>
+          <div className={`${styles.portrait} reveal`}>
+            <Image
+              className={styles.photo}
+              src="/gustavo.webp"
+              alt={t.photoAlt}
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 400px"
+            />
+            <span className={styles.avail}>{t.available}</span>
+          </div>
+        </section>
+
+        <section className={styles.sec} id="apps" aria-labelledby="h-apps">
+          <div className={styles.wrap}>
+            <div className={`${styles.head} reveal`}>
+              <div>
+                <p className={styles.eyebrow}>{t.apps.eyebrow}</p>
+                <h2 id="h-apps">{t.apps.title}</h2>
+              </div>
+              <p>{t.apps.intro}</p>
+            </div>
+            <div className={styles.apps}>
+              <AppCard app={featured} t={t} featured />
+              {apps.map((app) => (
+                <AppCard key={app.name} app={app} t={t} />
+              ))}
+            </div>
+
+            <h3 className={`${styles.eyebrow} ${styles.labHead} reveal`}>{t.lab.title}</h3>
+            <ul className={styles.lab}>
+              {lab.map((item) => (
+                <li key={item.name} className={`${styles.labCard} reveal`}>
+                  <Image src={item.icon} alt="" width={44} height={44} loading="lazy" />
+                  <strong>{item.name}</strong>
+                  <span>{t.lab.pitch[item.key]}</span>
+                  <div
+                    className={styles.stage}
+                    role="img"
+                    aria-label={t.lab.step(item.stage, t.lab[item.label])}
+                  >
+                    {Array.from({ length: 7 }, (_, i) => (
+                      <i key={i} className={i < item.stage ? styles.done : undefined} />
+                    ))}
+                  </div>
+                  <small>{t.lab[item.label]}</small>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className={styles.sec} id="how" aria-labelledby="h-how">
+          <div className={styles.wrap}>
+            <div className={`${styles.head} reveal`}>
+              <div>
+                <p className={styles.eyebrow}>{t.how.eyebrow}</p>
+                <h2 id="h-how">{t.how.title}</h2>
+              </div>
+            </div>
+            <ol className={`${styles.how} reveal`}>
+              {t.how.steps.map((s, i) => (
+                <li key={s.title}>
+                  <span className={styles.n}>0{i + 1}</span>
+                  <h3>{s.title}</h3>
+                  <p>{s.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section className={styles.sec} id="experience" aria-labelledby="h-xp">
+          <div className={`${styles.wrap} ${styles.xp}`}>
+            <div className="reveal">
+              <p className={styles.eyebrow}>{t.xp.eyebrow}</p>
+              <h2 id="h-xp">
+                {profile.years} {t.xp.title}
+              </h2>
+              <p className={styles.lede}>{t.xp.intro}</p>
+            </div>
+            <div className="reveal">
+              <ol className={styles.list}>
+                {employers.map((e) => (
+                  <li key={e.company}>
+                    <div>
+                      <strong>{e.company}</strong>
+                      <span>{t.xp.roles[e.role]}</span>
+                    </div>
+                    <time>
+                      {e.from} – {e.to ?? t.xp.now}
+                    </time>
+                  </li>
+                ))}
+              </ol>
+              <h3 className={`${styles.eyebrow} ${styles.listHead}`}>{t.xp.education}</h3>
+              <ol className={styles.list}>
+                {credentials.map((c) => (
+                  <li key={c.key}>
+                    <div>
+                      <strong>{t.xp.credentials[c.key]}</strong>
+                      <span>{c.institution}</span>
+                    </div>
+                    <time>{c.year ?? t.xp.credentials.expected}</time>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
-          <ol className={styles.steps} aria-label="Sections">
-            <li><a href="#frame">Frame</a></li>
-            <li><a href="#build">Build</a></li>
-            <li><a href="#ship">Ship</a></li>
-            <li><a href="#lead">Lead</a></li>
-          </ol>
         </section>
 
-        <section className={`${styles.chap} ${styles.g1}`} id="frame" aria-labelledby="v-frame">
-          <div className={styles.copy}>
-            <p className={`${styles.num} ${styles.rise}`} data-rise aria-hidden="true">01 / 04</p>
-            <h2 className={`${styles.verb} ${styles.rise}`} data-rise data-node id="v-frame"><span>Frame</span></h2>
-            <p className={`${styles.claim} ${styles.rise}`} data-rise>
-              I turn ambiguous product problems into clear interaction models, then keep the
-              interface focused on what people need to do.
-            </p>
+        <section className={`${styles.sec} ${styles.contactSec}`} id="contact" aria-labelledby="h-contact">
+          <div className={styles.wrap}>
+            <div className={`${styles.contact} reveal`}>
+              <h2 id="h-contact">
+                {t.contact.title[0]} <em>{t.contact.title[1]}</em>
+              </h2>
+              <div className={styles.row}>
+                <CopyEmail email={profile.email} label={t.contact.copy} done={t.contact.copied} />
+                <a className={styles.ghost} href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
+                <a className={styles.ghost} href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+              </div>
+              <p className={styles.small}>
+                {t.contact.write} <a href={profile.mailto}>{profile.email}</a>. {t.contact.press}{" "}
+                <kbd className={styles.kbd}>E</kbd> {t.contact.pressEnd}
+              </p>
+            </div>
           </div>
-          <div className={styles.stage} data-par="40">
-            <ul className={`${styles.rows} ${styles.rise}`} data-rise>
-              {hierarchy.map((item) => (
-                <li key={item.label}>
-                  <span className={styles.pl}>{item.label}</span>
-                  <span>{item.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className={`${styles.chap} ${styles.wide} ${styles.g2}`} id="build" aria-labelledby="v-build">
-          <div className={styles.copy}>
-            <p className={`${styles.num} ${styles.rise}`} data-rise aria-hidden="true">02 / 04</p>
-            <h2 className={`${styles.verb} ${styles.rise}`} data-rise data-node id="v-build"><span>Build</span></h2>
-            <p className={`${styles.claim} ${styles.rise}`} data-rise>
-              I design component boundaries, responsive rules and state flows that help teams
-              extend a product without fighting it.
-            </p>
-            <p className={`${styles.proofCap} ${styles.rise}`} data-rise>
-              <span className={styles.pl}>Try it</span> The ruler below controls this composition.
-              Its width, hierarchy and reading order adapt without changing the content.
-            </p>
-          </div>
-          <div className={`${styles.fullStage} ${styles.rise}`} data-rise>
-            <Specimen />
-          </div>
-        </section>
-
-        <section className={`${styles.chap} ${styles.flip} ${styles.g3}`} id="ship" aria-labelledby="v-ship">
-          <div className={styles.copy}>
-            <p className={`${styles.num} ${styles.rise}`} data-rise aria-hidden="true">03 / 04</p>
-            <h2 className={`${styles.verb} ${styles.rise}`} data-rise data-node id="v-ship"><span>Ship</span></h2>
-            <p className={`${styles.claim} ${styles.rise}`} data-rise>
-              Accessibility, performance, resilient states and maintainability are part of the
-              interface, not a cleanup pass.
-            </p>
-          </div>
-          <div className={styles.stage} data-par="40">
-            <ul className={`${styles.rows} ${styles.rise}`} data-rise aria-label="Quality built into this page">
-              {quality.map((item) => (
-                <li key={item.label}>
-                  <span className={styles.pl}>{item.label}</span>
-                  <span>{item.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className={`${styles.chap} ${styles.g4}`} id="lead" aria-labelledby="v-lead">
-          <div className={styles.copy}>
-            <p className={`${styles.num} ${styles.rise}`} data-rise aria-hidden="true">04 / 04</p>
-            <h2 className={`${styles.verb} ${styles.rise}`} data-rise data-node id="v-lead"><span>Lead</span></h2>
-            <p className={`${styles.claim} ${styles.rise}`} data-rise>
-              Products are private. The experience is real: entertainment, fintech, agriculture and
-              digital products.
-            </p>
-            <p className={`${styles.proofCap} ${styles.rise}`} data-rise>
-              A selected path, not a complete resume. Today I also work embedded in customer
-              problems through Linear Craft, and build with LLMs as a Claude Certified Architect.
-            </p>
-          </div>
-          <div className={styles.stage} data-par="40">
-            <ol className={`${styles.employers} ${styles.rise}`} data-rise>
-              {employers.map((employer) => (
-                <li key={employer.company}>
-                  <strong>{employer.company}</strong>
-                  <span>{employer.role}</span>
-                  <time>{employer.period}</time>
-                </li>
-              ))}
-            </ol>
-            <h3 className={`${styles.subhead} ${styles.rise}`} data-rise>Education and credentials</h3>
-            <ol className={`${styles.employers} ${styles.rise}`} data-rise>
-              {credentials.map((credential) => (
-                <li key={credential.title}>
-                  <strong>{credential.title}</strong>
-                  <span>{credential.institution}</span>
-                  <time>{credential.year}</time>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        <section className={styles.close} id="contact" aria-labelledby="h-close">
-          <h2 className={styles.rise} data-rise id="h-close">Have a product that needs senior frontend judgment?</h2>
-          <a className={styles.mail} href={profile.mailto} data-end>{profile.email}</a>
-          <p className={`${styles.who} ${styles.rise}`} data-rise>
-            <a className={styles.plink} href={profile.linkedin} rel="noreferrer" target="_blank">LinkedIn{arrow}</a>
-            <a className={styles.plink} href={profile.github} rel="noreferrer" target="_blank">GitHub{arrow}</a>
-          </p>
         </section>
       </main>
 
       <footer className={styles.foot}>
-        <p>© 2026 Gustavo Bispo</p>
-        <p>Brazil / UTC-3</p>
-        <p><a href="https://www.linearcraft.dev" rel="noopener">Linear Craft Technology</a></p>
+        <div className={styles.wrap}>
+          <span>© 2026 Gustavo Bispo · {t.footer}</span>
+          <span className={styles.mono}>Next.js · Cloudflare Workers</span>
+        </div>
       </footer>
-    </>
+    </div>
   );
 }

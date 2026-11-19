@@ -1,22 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Funnel_Display, Funnel_Sans, JetBrains_Mono } from "next/font/google";
+import { Geist, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
 
-const funnelSans = Funnel_Sans({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-funnel-sans",
+  variable: "--font-geist",
   display: "swap",
   fallback: ["ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
-  adjustFontFallback: true,
-});
-
-const funnelDisplay = Funnel_Display({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-funnel-display",
-  display: "swap",
-  fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
   adjustFontFallback: true,
 });
 
@@ -62,8 +53,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  colorScheme: "dark",
-  themeColor: "#0a0c0d",
+  colorScheme: "light",
+  themeColor: "#f6f4ef",
 };
 
 export default function RootLayout({
@@ -74,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${funnelSans.variable} ${funnelDisplay.variable} ${jetbrains.variable}`}
+      className={`${geist.variable} ${jetbrains.variable}`}
       suppressHydrationWarning
     >
       <head>

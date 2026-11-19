@@ -1,10 +1,11 @@
 :root {
-  --bg: #0a0c0d;
-  --fg: #eceeed;
-  --muted: #9aa3a0;
-  --rule: rgba(236, 238, 237, 0.16);
-  --pen: #ff4d1f;
-  color-scheme: dark;
+  --bg: #f6f4ef;
+  --surface: #fbfaf7;
+  --fg: #1b1d1f;
+  --muted: #5f6368;
+  --rule: rgba(27, 29, 31, 0.1);
+  --pen: #ff5b2e;
+  color-scheme: light;
 }
 
 *,
@@ -16,10 +17,10 @@
 html {
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-funnel-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   scroll-behavior: smooth;
   scroll-padding-top: 72px;
-  scrollbar-color: #2a3032 var(--bg);
+  scrollbar-color: #cfcabf var(--bg);
   scrollbar-width: thin;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
@@ -39,7 +40,7 @@ a {
 
 ::selection {
   background: var(--pen);
-  color: var(--bg);
+  color: #fff;
 }
 
 :focus-visible {
@@ -78,4 +79,16 @@ a {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+/* Scroll reveal (RevealObserver adds .is-visible). Content stays visible without JavaScript. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }

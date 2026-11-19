@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Senior Frontend, Product & Forward Deployed Engineer",
   description:
     "Senior frontend engineering expressed through resilient, accessible interfaces.",
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", languages: { en: "/", "pt-BR": "/pt", "x-default": "/" } },
 };
 
 export default function Page() {

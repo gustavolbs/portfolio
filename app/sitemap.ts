@@ -12,6 +12,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 1,
+      alternates: { languages: { en: `${BASE}/`, "pt-BR": `${BASE}/pt` } },
+    },
+    {
+      url: `${BASE}/pt`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      alternates: { languages: { en: `${BASE}/`, "pt-BR": `${BASE}/pt` } },
     },
     {
       url: `${BASE}/civitasly`,
