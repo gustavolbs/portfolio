@@ -89,6 +89,8 @@ const credentials = [
 const external = (href?: string) => (href?.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {});
 
 function AppCard({ app, t, featured: isFeatured = false }: { app: App; t: HomeCopy; featured?: boolean }) {
+  // case studies have a Portuguese version under /pt
+  const href = app.href?.startsWith("/") && t.home !== "/" ? `${t.home}${app.href}` : app.href;
   const body = (
     <>
       <div className={styles.appText}>
@@ -119,8 +121,8 @@ function AppCard({ app, t, featured: isFeatured = false }: { app: App; t: HomeCo
   );
   const className = `${styles.app} ${isFeatured ? styles.feature : ""} reveal`;
   const style = { background: app.tint };
-  return app.href ? (
-    <a className={className} style={style} href={app.href} {...external(app.href)}>
+  return href ? (
+    <a className={className} style={style} href={href} {...external(href)}>
       {body}
     </a>
   ) : (
