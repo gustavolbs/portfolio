@@ -79,7 +79,8 @@ export function ScrollLine() {
       svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
       svg.style.height = `${h}px`;
 
-      const L = Math.round(parseFloat(getComputedStyle(bar).paddingLeft) / 2);
+      // Rail sits half a --pad left of the content column, so it follows the column on wide screens.
+      const L = Math.round(parseFloat(getComputedStyle(bar).paddingLeft) - Math.min(72, Math.max(28, w * 0.05)) / 2);
       const s = at(startEl, 0.5, 1);
       const sy = s.y + 18;
       const mr = endEl.getBoundingClientRect();

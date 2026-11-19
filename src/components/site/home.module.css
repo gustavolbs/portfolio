@@ -23,7 +23,7 @@
 
 /* Bar */
 .bar {
-  position: fixed; inset: 0 0 auto 0; z-index: 10; height: 64px; padding-inline: var(--pad);
+  position: fixed; inset: 0 0 auto 0; z-index: 10; height: 64px; padding-inline: max(var(--pad), calc((100% - var(--max)) / 2));
   display: flex; align-items: center; justify-content: space-between;
   background: color-mix(in srgb, var(--bg) 72%, transparent);
   -webkit-backdrop-filter: blur(18px) saturate(1.5); backdrop-filter: blur(18px) saturate(1.5);
