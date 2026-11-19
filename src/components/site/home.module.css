@@ -464,12 +464,39 @@ a.app:hover .go {
 }
 
 .labCard {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 22px;
   border: 1px solid var(--rule);
   border-radius: 22px;
   background: var(--surface);
+}
+
+.labLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Stretch the link over the whole card. */
+.labLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.labLink:focus-visible {
+  outline: none;
+}
+
+.labLink:focus-visible::after {
+  outline: 2px solid var(--pen);
+  outline-offset: 3px;
+}
+
+.labCard:has(.labLink):hover {
+  border-color: var(--ink);
 }
 
 .labCard img {
