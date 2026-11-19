@@ -66,7 +66,7 @@ const apps: readonly App[] = [
 const lab = [
   { key: "beecorder", name: "Beecorder", icon: "/apps/beecorder-icon.webp", stage: 6, label: "building", href: "/beecorder" },
   { key: "formula", name: "Fio", icon: "/apps/formula-icon.webp", stage: 4, label: "screens", href: "/fio" },
-  { key: "frasco", name: "Frasco", icon: "/apps/frasco-icon.webp", stage: 4, label: "screens" },
+  { key: "frasco", name: "Frasco", icon: "/apps/frasco-icon.webp", stage: 4, label: "screens", href: "/frasco" },
   { key: "cafune", name: "Cafuné", icon: "/apps/cafune-icon.webp", stage: 4, label: "screens", href: "/cafune" },
   { key: "montei", name: "Montei", icon: "/apps/montei-icon.webp", stage: 4, label: "screens", href: "/montei" },
 ] as const;
@@ -214,13 +214,9 @@ export function Home({ lang = "en" }: { lang?: Lang }) {
                 <li key={item.name} className={`${styles.labCard} reveal`}>
                   <Image src={item.icon} alt="" width={44} height={44} loading="lazy" />
                   <strong>
-                    {"href" in item ? (
-                      <a className={styles.labLink} href={t.home === "/" ? item.href : `${t.home}${item.href}`}>
-                        {item.name}
-                      </a>
-                    ) : (
-                      item.name
-                    )}
+                    <a className={styles.labLink} href={t.home === "/" ? item.href : `${t.home}${item.href}`}>
+                      {item.name}
+                    </a>
                   </strong>
                   <span>{t.lab.pitch[item.key]}</span>
                   <div

@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       alternates: { languages: { en: `${BASE}/`, "pt-BR": `${BASE}/pt` } },
     },
-    ...["civitasly", "medusa", "urbanify", "ipcatole", "beecorder", "fio", "montei", "cafune"].flatMap((slug) => {
+    ...["civitasly", "medusa", "urbanify", "ipcatole", "beecorder", "fio", "montei", "cafune", "frasco"].flatMap((slug) => {
       const languages = { en: `${BASE}/${slug}`, "pt-BR": `${BASE}/pt/${slug}` };
       return [`${BASE}/${slug}`, `${BASE}/pt/${slug}`].map((url) => ({
         url,
