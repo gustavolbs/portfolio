@@ -20,50 +20,36 @@ export default async function Image() {
         style={{
           width: "100%",
           height: "100%",
-          padding: "44px 48px",
+          padding: "56px 64px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#f8f8f8",
-          color: "#090909",
+          backgroundColor: "#f6f4ef",
+          color: "#1b1d1f",
           fontFamily: "Geist",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            paddingBottom: "24px",
-            borderBottom: "1px solid rgba(67, 119, 210, 0.28)",
-            fontSize: "22px",
-          }}
-        >
-          <span>{profile.shortName}</span>
-          <span style={{ color: "#0b57f4", fontSize: "16px" }}>
-            Senior Frontend &amp; Product Engineer
-          </span>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "26px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+            <svg width="22" height="27" viewBox="0 0 18 22">
+              <path d="M3 2v15a3 3 0 0 0 3 3h10" fill="none" stroke="#ff5b2e" strokeWidth="2.4" strokeLinecap="round" />
+              <circle cx="3" cy="2.4" r="2.2" fill="#ff5b2e" />
+            </svg>
+            <span>gustavo bispo</span>
+          </div>
+          <span style={{ color: "#6b6a66", fontSize: "20px" }}>Senior Frontend, Product &amp; Forward Deployed Engineer</span>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-          <div
-            style={{
-              width: "54px",
-              height: "6px",
-              display: "flex",
-              backgroundColor: "#0b57f4",
-            }}
-          />
-          <div
-            style={{
-              maxWidth: "1060px",
-              display: "flex",
-              fontSize: "82px",
-              lineHeight: 0.92,
-              letterSpacing: "-0.055em",
-            }}
-          >
-            I engineer interfaces that survive production.
+        {/* satori has no inline flow: one span per word so the orange period stays on the last word */}
+        <div
+          style={{ display: "flex", flexWrap: "wrap", columnGap: "24px", maxWidth: "1040px", fontSize: "96px", lineHeight: 0.98, letterSpacing: "-0.045em" }}
+        >
+          {"I build interfaces that hold up in".split(" ").map((word) => (
+            <span key={word}>{word}</span>
+          ))}
+          <div style={{ display: "flex" }}>
+            <span>production</span>
+            <span style={{ color: "#ff5b2e", marginLeft: "-4px" }}>.</span>
           </div>
         </div>
 
@@ -71,22 +57,20 @@ export default async function Image() {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            paddingTop: "20px",
-            borderTop: "1px solid rgba(67, 119, 210, 0.28)",
-            color: "#0b57f4",
-            fontSize: "15px",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
+            paddingTop: "22px",
+            borderTop: "1px solid rgba(27, 29, 31, 0.14)",
+            color: "#6b6a66",
+            fontSize: "20px",
           }}
         >
-          <span>6+ years / React / TypeScript / Next.js</span>
-          <span>iam.linearcraft.dev</span>
+          <span>6+ years · React · TypeScript · Next.js · apps on the App Store</span>
+          <span style={{ color: "#1b1d1f" }}>iam.linearcraft.dev</span>
         </div>
       </div>
     ),
     {
       ...size,
-      fonts: [{ name: "Geist", data: fontData, style: "normal", weight: 500 }],
+      fonts: [{ name: "Geist", data: fontData, style: "normal", weight: 400 }],
     },
   );
 }

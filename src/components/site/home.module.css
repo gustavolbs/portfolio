@@ -168,6 +168,13 @@
   font: 12px/1.4 var(--font-jetbrains), ui-monospace, monospace;
 }
 
+/* touch screens cannot hover or resize the window, so the hint would ask the impossible */
+@media (hover: none) {
+  .hint {
+    display: none;
+  }
+}
+
 /* inspector: the box colors match Chrome DevTools (content blue, padding green) */
 .insp {
   position: relative;
