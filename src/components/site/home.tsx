@@ -28,7 +28,7 @@ const featured: App = {
   icon: "/apps/medusa-icon.webp",
   iconWidth: 93, // tvOS app icons are 5:3, not square
   shot: "/apps/medusa.webp",
-  href: "https://medusa.linearcraft.dev",
+  href: "/medusa",
   tint: "#e7e9f2",
 };
 

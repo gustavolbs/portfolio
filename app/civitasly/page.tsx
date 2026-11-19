@@ -1,11 +1,11 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { DM_Sans, DM_Serif_Display } from "next/font/google";
 
-import { publicProfile as profile } from "@/content/public-profile";
-
-import styles from "./civitasly.module.css";
+import { CaseHead, CaseShell } from "@/components/site/case-shell";
+import s from "@/components/site/case.module.css";
+import home from "@/components/site/home.module.css";
 
 const dmSerif = DM_Serif_Display({
   subsets: ["latin"],
@@ -132,267 +132,249 @@ const stack = [
   },
 ] as const;
 
+const TINT = "#e4ece5";
+
 export default function CivitaslyCaseStudy() {
   return (
-    <main className={`${styles.page} ${dmSerif.variable} ${dmSans.variable}`} id="main">
-      <header className={styles.header}>
-        <Link className={styles.brand} href="/">Gustavo Bispo</Link>
-        <nav className={styles.nav} aria-label="Primary navigation">
-          <a href={profile.mailto}>Email</a>
-          <a href={profile.linkedin} rel="noreferrer" target="_blank">LinkedIn</a>
-        </nav>
-      </header>
-
-      <section className={styles.hero} aria-labelledby="hero-title">
-        <p className={styles.kicker}>
-          <span aria-hidden="true" />
-          Case study / 2026
-        </p>
-        <h1 className={styles.headline} id="hero-title">
-          <span>Civitasly.</span>
-          <span>Designed and built</span>
-          <span>end to end.</span>
-        </h1>
-        <p className={styles.lede}>
-          A mobile-first operating app for real estate agents in Brazil. Agents ask an
-          assistant to register a property, match a client, check today&apos;s visits or
-          see who owes rent. I am the only person on it: product, brand, design system,
-          the iOS and Android app, the web platform and the marketing that sells it.
-        </p>
-        <dl className={styles.facts}>
-          {facts.map((fact) => (
-            <div key={fact.label}>
-              <dt>{fact.label}</dt>
-              <dd>{fact.value}</dd>
-            </div>
-          ))}
-          <div>
-            <dt>Live</dt>
-            <dd><a href="https://civitasly.com/pt" rel="noreferrer" target="_blank">civitasly.com</a></dd>
-          </div>
-        </dl>
-      </section>
-
-      <section className={styles.section} aria-labelledby="walkthrough-title">
-        <SectionLabel number="01" name="Walkthrough" />
-        <div className={styles.intro}>
-          <h2 id="walkthrough-title">Twenty-six seconds of product.</h2>
-          <p>
-            Every frame is a real app screen. I built the video in code with Remotion:
-            scenes are measured in beats in a single timeline file, and a Python script
-            synthesizes the soundtrack from that same file, so every cut lands on the
-            beat by construction.
+    <CaseShell contactTitle={["Want the live", "walkthrough?"]}>
+      <section className={`${home.wrap} ${s.hero}`} aria-labelledby="hero-title">
+        <div>
+          <Link className={s.back} href="/#apps">
+            <span aria-hidden="true">←</span> Apps · Case study, 2026
+          </Link>
+          <h1 id="hero-title">
+            Civitasly, designed and built end to end<span>.</span>
+          </h1>
+          <p className={s.lede}>
+            A mobile-first operating app for real estate agents in Brazil. Agents ask an assistant to register a
+            property, match a client, check today&apos;s visits or see who owes rent. I am the only person on it:
+            product, brand, design system, the iOS and Android app, the web platform and the marketing that sells it.
           </p>
-        </div>
-        <figure className={styles.media}>
-          <video
-            className={styles.wideVideo}
-            controls
-            playsInline
-            poster={`${MEDIA}/img/poster-promo-site.jpg`}
-            preload="none"
-            width={1920}
-            height={1080}
-          >
-            <source src={`${MEDIA}/video/civitasly-promo-site-16x9.mp4`} type="video/mp4" />
-          </video>
-          <figcaption className={styles.meta}>
-            <span>1920 × 1080 / 26 s / Remotion and a synthesized score</span>
-            <span>On-screen copy in Brazilian Portuguese</span>
-            <a href={`${MEDIA}/video/civitasly-promo-reels-9x16.mp4`} rel="noreferrer" target="_blank">
-              Vertical cut, 9:16
-            </a>
-          </figcaption>
-        </figure>
-      </section>
-
-      <section className={styles.section} aria-labelledby="app-title">
-        <SectionLabel number="02" name="The app" />
-        <div className={styles.intro}>
-          <h2 id="app-title">Calm screens for a noisy job.</h2>
-          <p>
-            Agents live in WhatsApp and work between visits. The app is organized around
-            the questions they ask on the street: what do I collect this week, who needs a
-            follow-up, where am I at two o&apos;clock. Amounts are set large and statuses are
-            written out.
-          </p>
-        </div>
-        <ol className={styles.screens}>
-          {screens.map((screen, index) => (
-            <li key={screen.file}>
-              <Image
-                alt={`${screen.title} screen of the Civitasly app`}
-                height={2803}
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 22vw"
-                src={`${MEDIA}/img/${screen.file}`}
-                width={1290}
-              />
-              <span className={styles.index}>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{screen.title}</strong>
-              <p>{screen.body}</p>
-            </li>
-          ))}
-        </ol>
-        <p className={styles.note}>Store screenshot set. All names and amounts are illustrative.</p>
-      </section>
-
-      <section className={`${styles.section} ${styles.ledger}`} aria-labelledby="system-title">
-        <SectionLabel number="03" name="Design system" />
-        <div className={styles.intro}>
-          <h2 id="system-title">A ledger, not a dashboard.</h2>
-          <p>
-            Warm paper, a deep green, one brass accent and thin rules. A serif for
-            statements and amounts, a sans for operational text, mono for labels. The dark
-            theme is a palette of its own rather than an inversion.
-          </p>
-        </div>
-
-        <div className={styles.specimen}>
-          <div className={styles.type}>
-            <div>
-              <span className={styles.metaLabel}>DM Serif Display / statements, amounts</span>
-              <p className={styles.serifSample}>R$ 4.850,00</p>
-            </div>
-            <div>
-              <span className={styles.metaLabel}>DM Sans / operational text</span>
-              <p className={styles.sansSample}>4 collections need attention this week</p>
-            </div>
-            <div>
-              <span className={styles.metaLabel}>JetBrains Mono / labels, states</span>
-              <p className={styles.monoSample}>OVERDUE · 12 DAYS</p>
-            </div>
-          </div>
-
-          <div className={styles.palettes}>
-            {palettes.map((palette) => (
-              <div key={palette.name}>
-                <span className={styles.metaLabel}>{palette.name} theme</span>
-                <ul className={styles.swatches}>
-                  {palette.swatches.map((swatch) => (
-                    <li key={swatch.hex}>
-                      <span className={styles.chip} style={{ background: swatch.hex }} aria-hidden="true" />
-                      <span>{swatch.name}</span>
-                      <code>{swatch.hex}</code>
-                    </li>
-                  ))}
-                </ul>
+          <dl className={s.facts}>
+            {facts.map((fact) => (
+              <div key={fact.label}>
+                <dt>{fact.label}</dt>
+                <dd>{fact.value}</dd>
               </div>
             ))}
+            <div>
+              <dt>Live</dt>
+              <dd>
+                <a href="https://civitasly.com/pt" rel="noreferrer" target="_blank">civitasly.com ↗</a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+        <div className={`${s.stage} reveal`} style={{ background: TINT }}>
+          <div className={s.phone}>
+            <Image
+              alt="Rentals list of the Civitasly app in the dark theme"
+              height={2803}
+              priority
+              sizes="(max-width: 900px) 62vw, 300px"
+              src={`${MEDIA}/img/app-screen-03.jpg`}
+              width={1290}
+            />
           </div>
         </div>
-
-        <ol className={styles.rows}>
-          {principles.map((principle, index) => (
-            <li key={principle.title}>
-              <span className={styles.index}>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{principle.title}</h3>
-              <p>{principle.body}</p>
-            </li>
-          ))}
-        </ol>
       </section>
 
-      <section className={styles.section} aria-labelledby="iteration-title">
-        <SectionLabel number="04" name="Iteration" />
-        <div className={styles.intro}>
-          <h2 id="iteration-title">Auditing my own landing.</h2>
-          <p>
-            I review my own surfaces the way I would review a teammate&apos;s. The audit found
-            a hero that promised chat, leads and rent collection while showing one screen,
-            and headings set in a different typeface from the app. The concept puts two
-            real screens in the first fold and brings the app&apos;s serif to the headlines.
-          </p>
-        </div>
-        <div className={styles.compare}>
-          <figure>
-            <Image
-              alt="Civitasly landing page before the audit, showing a single rentals screen"
-              height={900}
-              sizes="(max-width: 760px) 100vw, 47vw"
-              src={`${MEDIA}/img/landing-current-desktop-first-screen.jpg`}
-              width={1440}
-            />
-            <figcaption className={styles.meta}><span>Before</span><span>One screen, sans headline</span></figcaption>
-          </figure>
-          <figure>
-            <Image
-              alt="Civitasly landing page concept with the chat and rentals screens and a serif headline"
-              height={900}
-              sizes="(max-width: 760px) 100vw, 47vw"
-              src={`${MEDIA}/img/landing-concept-desktop-first-screen.jpg`}
-              width={1440}
-            />
-            <figcaption className={styles.meta}><span>Concept</span><span>Two real screens, app serif</span></figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section className={`${styles.section} ${styles.dark}`} aria-labelledby="ads-title">
-        <SectionLabel number="05" name="Ad factory" />
-        <div className={styles.intro}>
-          <h2 id="ads-title">A pipeline, not a video.</h2>
-          <p>
-            Each ad is a JSON script rendered by a format engine with its own narrative,
-            visual system and score. Every ad renders twice: a clean cut for the feed and
-            an x-ray cut that annotates the story beat and technique of each segment, so
-            the creative reasoning can be reviewed like code.
-          </p>
-        </div>
-        <ul className={styles.ads}>
-          {ads.map((ad) => (
-            <li key={ad.file}>
+      <section className={home.sec} aria-labelledby="walkthrough-title">
+        <div className={home.wrap}>
+          <CaseHead id="walkthrough-title" eyebrow="Walkthrough" title="Twenty-six seconds of product.">
+            Every frame is a real app screen. I built the video in code with Remotion: scenes are measured in beats in
+            a single timeline file, and a Python script synthesizes the soundtrack from that same file, so every cut
+            lands on the beat by construction.
+          </CaseHead>
+          <figure className="reveal" style={{ margin: 0 }}>
+            <div className={s.frame}>
               <video
                 controls
                 playsInline
-                poster={`${MEDIA}/img/${ad.poster}`}
+                poster={`${MEDIA}/img/poster-promo-site.jpg`}
                 preload="none"
-                width={1080}
-                height={1920}
+                width={1920}
+                height={1080}
               >
-                <source src={`${MEDIA}/video/${ad.file}`} type="video/mp4" />
+                <source src={`${MEDIA}/video/civitasly-promo-site-16x9.mp4`} type="video/mp4" />
               </video>
-              <span className={styles.metaLabel}>{ad.format} / x-ray cut</span>
-              <strong>{ad.title}</strong>
-            </li>
-          ))}
-        </ul>
-        <ul className={styles.rules}>
-          <li>Hook readable on frame zero</li>
-          <li>Tells the story with the sound off</li>
-          <li>Something new every 1.5 s or less</li>
-          <li>Proof with real product screens</li>
-        </ul>
-      </section>
-
-      <section className={styles.section} aria-labelledby="stack-title">
-        <SectionLabel number="06" name="Under the hood" />
-        <div className={styles.intro}>
-          <h2 id="stack-title">One codebase, every surface.</h2>
-        </div>
-        <dl className={styles.stack}>
-          {stack.map((item) => (
-            <div key={item.area}>
-              <dt>{item.area}</dt>
-              <dd>{item.body}</dd>
             </div>
-          ))}
-        </dl>
+            <figcaption className={s.meta}>
+              <span>1920 × 1080 · 26 s · Remotion and a synthesized score</span>
+              <span>On-screen copy in Brazilian Portuguese</span>
+              <a href={`${MEDIA}/video/civitasly-promo-reels-9x16.mp4`} rel="noreferrer" target="_blank">
+                Vertical cut, 9:16 ↗
+              </a>
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
-      <section className={styles.contact} aria-labelledby="contact-title">
-        <h2 id="contact-title">Want the live walkthrough?</h2>
-        <p>I am happy to go through the app, the codebase or the ad pipeline on a call.</p>
-        <a href={profile.mailto}>{profile.email}</a>
+      <section className={home.sec} aria-labelledby="app-title">
+        <div className={home.wrap}>
+          <CaseHead id="app-title" eyebrow="The app" title="Calm screens for a noisy job.">
+            Agents live in WhatsApp and work between visits. The app is organized around the questions they ask on the
+            street: what do I collect this week, who needs a follow-up, where am I at two o&apos;clock.
+          </CaseHead>
+          <ol className={s.screens}>
+            {screens.map((screen, index) => (
+              <li key={screen.file} className="reveal">
+                <div className={s.shot}>
+                  <Image
+                    alt={`${screen.title} screen of the Civitasly app`}
+                    height={2803}
+                    loading="lazy"
+                    sizes="(max-width: 600px) 70vw, (max-width: 900px) 34vw, 260px"
+                    src={`${MEDIA}/img/${screen.file}`}
+                    width={1290}
+                  />
+                </div>
+                <span className={s.n}>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{screen.title}</strong>
+                <p>{screen.body}</p>
+              </li>
+            ))}
+          </ol>
+          <p className={s.note}>Store screenshot set. All names and amounts are illustrative.</p>
+        </div>
       </section>
-    </main>
-  );
-}
 
-function SectionLabel({ number, name }: { number: string; name: string }) {
-  return (
-    <div className={styles.sectionLabel}>
-      <span>{number}</span>
-      <span>{name}</span>
-    </div>
+      <section className={home.sec} aria-labelledby="system-title">
+        <div className={home.wrap}>
+          <CaseHead id="system-title" eyebrow="Design system" title="A ledger, not a dashboard.">
+            Warm paper, a deep green, one brass accent and thin rules. A serif for statements and amounts, a sans for
+            operational text, mono for labels. The dark theme is a palette of its own rather than an inversion.
+          </CaseHead>
+          <div className={`${s.specimen} ${dmSerif.variable} ${dmSans.variable}`}>
+            <div className={`${s.panel} reveal`}>
+              <span className={s.label}>DM Serif Display · statements, amounts</span>
+              <p className={s.sample} style={{ fontFamily: "var(--font-dm-serif)", fontSize: "clamp(40px, 5vw, 64px)" }}>
+                R$ 4.850,00
+              </p>
+              <span className={s.label}>DM Sans · operational text</span>
+              <p className={s.sample} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "clamp(20px, 2vw, 26px)" }}>
+                4 collections need attention this week
+              </p>
+              <span className={s.label}>JetBrains Mono · labels, states</span>
+              <p className={s.sample} style={{ fontFamily: "var(--font-jetbrains)", fontSize: 15, letterSpacing: "0.08em" }}>
+                OVERDUE · 12 DAYS
+              </p>
+            </div>
+            <div className={`${s.panel} reveal`}>
+              {palettes.map((palette) => (
+                <div key={palette.name} className={s.swatchGroup}>
+                  <span className={s.label}>{palette.name} theme</span>
+                  <ul className={s.swatches}>
+                    {palette.swatches.map((swatch) => (
+                      <li key={swatch.hex}>
+                        <span className={s.chip} style={{ background: swatch.hex }} aria-hidden="true" />
+                        <span>{swatch.name}</span>
+                        <code>{swatch.hex}</code>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+          <ol className={`${s.principles} reveal`}>
+            {principles.map((principle, index) => (
+              <li key={principle.title}>
+                <span className={s.n}>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{principle.title}</h3>
+                <p>{principle.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className={home.sec} aria-labelledby="iteration-title">
+        <div className={home.wrap}>
+          <CaseHead id="iteration-title" eyebrow="Iteration" title="Auditing my own landing.">
+            The audit found a hero that promised chat, leads and rent collection while showing one screen, and headings
+            in a different typeface from the app. The concept puts two real screens in the first fold and brings the
+            app&apos;s serif to the headlines.
+          </CaseHead>
+          <div className={s.compare}>
+            <figure className="reveal">
+              <div className={s.frame}>
+                <Image
+                  alt="Civitasly landing page before the audit, showing a single rentals screen"
+                  height={900}
+                  loading="lazy"
+                  sizes="(max-width: 600px) 100vw, 600px"
+                  src={`${MEDIA}/img/landing-current-desktop-first-screen.jpg`}
+                  width={1440}
+                />
+              </div>
+              <figcaption className={s.meta}>
+                <span>Before</span>
+                <span>One screen, sans headline</span>
+              </figcaption>
+            </figure>
+            <figure className="reveal">
+              <div className={s.frame}>
+                <Image
+                  alt="Civitasly landing page concept with the chat and rentals screens and a serif headline"
+                  height={900}
+                  loading="lazy"
+                  sizes="(max-width: 600px) 100vw, 600px"
+                  src={`${MEDIA}/img/landing-concept-desktop-first-screen.jpg`}
+                  width={1440}
+                />
+              </div>
+              <figcaption className={s.meta}>
+                <span>Concept</span>
+                <span>Two real screens, app serif</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section className={`${home.sec} ${home.contactSec}`} aria-labelledby="ads-title">
+        <div className={home.wrap}>
+          <div className={`${s.dark} reveal`}>
+            <CaseHead id="ads-title" eyebrow="Ad factory" title="A pipeline, not a video.">
+              Each ad is a JSON script rendered by a format engine with its own narrative, visual system and score.
+              Every ad renders twice: a clean cut for the feed and an x-ray cut that annotates each segment, so the
+              creative reasoning can be reviewed like code.
+            </CaseHead>
+            <ul className={s.videos}>
+              {ads.map((ad) => (
+                <li key={ad.file}>
+                  <video controls playsInline poster={`${MEDIA}/img/${ad.poster}`} preload="none" width={1080} height={1920}>
+                    <source src={`${MEDIA}/video/${ad.file}`} type="video/mp4" />
+                  </video>
+                  <span className={s.label}>{ad.format} · x-ray cut</span>
+                  <strong>{ad.title}</strong>
+                </li>
+              ))}
+            </ul>
+            <ul className={s.chips} aria-label="Rules every ad follows">
+              <li>Hook readable on frame zero</li>
+              <li>Tells the story with the sound off</li>
+              <li>Something new every 1.5 s or less</li>
+              <li>Proof with real product screens</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className={home.sec} aria-labelledby="stack-title">
+        <div className={home.wrap}>
+          <CaseHead id="stack-title" eyebrow="Under the hood" title="One codebase, every surface." />
+          <dl className={`${s.stack} reveal`}>
+            {stack.map((item) => (
+              <div key={item.area}>
+                <dt>{item.area}</dt>
+                <dd>{item.body}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+    </CaseShell>
   );
 }

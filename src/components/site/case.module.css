@@ -1,0 +1,482 @@
+/* App case studies. Same paper, type and radii as the home; the app's own tint marks its panels. */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56px;
+  align-items: center;
+  padding-top: clamp(48px, 8vw, 104px);
+  padding-bottom: clamp(56px, 8vw, 96px);
+}
+
+.back {
+  display: inline-flex;
+  gap: 8px;
+  margin: 0 0 40px;
+  color: var(--muted);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back:hover {
+  color: var(--fg);
+}
+
+.hero h1 {
+  margin: 0;
+  font-weight: 400;
+  font-size: clamp(44px, 6vw, 84px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.hero h1 span {
+  color: var(--pen);
+}
+
+.lede {
+  max-width: 46ch;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: clamp(17px, 1.4vw, 19px);
+  line-height: 1.6;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 32px;
+  margin: 36px 0 0;
+}
+
+.facts div {
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.facts dt {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.facts dd {
+  margin: 4px 0 0;
+  font-size: 15.5px;
+}
+
+.facts a {
+  text-underline-offset: 4px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px;
+  margin-top: 32px;
+  font-size: 15px;
+}
+
+.links a:not([class]) {
+  text-underline-offset: 4px;
+  text-decoration-color: color-mix(in srgb, var(--fg) 30%, transparent);
+}
+
+/* tinted stage behind a device */
+.stage {
+  display: grid;
+  grid-template-columns: 100%;
+  place-items: center;
+  padding: clamp(32px, 5vw, 56px) clamp(24px, 4vw, 48px);
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+/* store shots already draw their own device, so no bezel here */
+.phone {
+  width: min(62%, 300px);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 32px 56px -28px rgba(0, 0, 0, 0.35);
+}
+
+.phone img,
+.frame img,
+.frame video,
+.tv img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tv {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 32px 56px -28px rgba(20, 24, 40, 0.55);
+}
+
+/* media */
+.frame {
+  margin: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 24px 48px -32px rgba(0, 0, 0, 0.45);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+.meta a {
+  color: var(--fg);
+  text-underline-offset: 4px;
+}
+
+.note {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+/* screen cards */
+.screens {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.screens li {
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  border: 1px solid var(--rule);
+  border-radius: 22px;
+  background: var(--surface);
+}
+
+.screens .shot {
+  width: 78%;
+  margin: 0 auto 22px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.screens .wide {
+  margin: 0 0 18px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.screens img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.n {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.screens strong {
+  margin-top: 6px;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.015em;
+}
+
+.screens p,
+.principles p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* design system specimen */
+.specimen {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
+}
+
+.panel {
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid var(--rule);
+  border-radius: 28px;
+  background: var(--surface);
+}
+
+.label {
+  display: block;
+  color: var(--muted);
+  font: 12px/1.4 var(--font-jetbrains), ui-monospace, monospace;
+}
+
+.sample {
+  margin: 8px 0 28px;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.sample:last-child {
+  margin-bottom: 0;
+}
+
+.swatchGroup + .swatchGroup {
+  margin-top: 28px;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 16px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.swatches li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 2px 12px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.swatches .chip {
+  grid-row: span 2;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.swatches code {
+  color: var(--muted);
+  font: 12px var(--font-jetbrains), ui-monospace, monospace;
+}
+
+/* numbered principles, ruled like "How I work" */
+.principles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px 32px;
+  margin: 56px 0 0;
+  padding: 40px 0 0;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+}
+
+.principles h3 {
+  margin: 10px 0 0;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+/* before and after */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.compare figure {
+  margin: 0;
+}
+
+/* dark block */
+.dark {
+  padding: clamp(32px, 6vw, 72px);
+  border-radius: 36px;
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.dark h2 {
+  color: var(--bg);
+}
+
+.dark .label,
+.dark div > p {
+  color: rgba(246, 244, 239, 0.66);
+}
+
+.dark :focus-visible {
+  outline-color: var(--bg);
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.videos video {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 14px;
+  border-radius: 18px;
+  background: #000;
+}
+
+.videos strong {
+  display: block;
+  margin-top: 4px;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 8px 14px;
+  border: 1px solid rgba(246, 244, 239, 0.22);
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+/* stack rows */
+.stack {
+  margin: 0;
+}
+
+.stack div {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) 3fr;
+  gap: 16px 32px;
+  padding: 22px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.stack div:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.stack dt {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.stack dd {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .specimen {
+    grid-template-columns: 1fr;
+  }
+
+  .screens,
+  .principles {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .videos {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .screens,
+  .principles,
+  .compare,
+  .facts {
+    grid-template-columns: 1fr;
+  }
+
+  .videos {
+    grid-template-columns: 1fr;
+  }
+
+  .stack div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .swatches {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* wide (TV) screens: two per row */
+.screens.wideScreens {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dark .principles {
+  border-top-color: rgba(246, 244, 239, 0.16);
+}
+
+.dark .principles p {
+  color: rgba(246, 244, 239, 0.66);
+}
+
+@media (max-width: 600px) {
+  .screens.wideScreens {
+    grid-template-columns: 1fr;
+  }
+}
+
+.heroTv .stage {
+  padding: clamp(16px, 3vw, 40px);
+}
+
+/* case pages stack many sections, so they sit closer than on the home */
+.main > section:not(.hero) {
+  padding-block: clamp(40px, 5vw, 64px);
+}
+
+/* TV apps: text on top, the landscape screen full width below it */
+.hero.heroTv {
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+
+.heroTv .lede {
+  max-width: 62ch;
+}
+
+.heroTv .facts {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .heroTv .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .heroTv .facts {
+    grid-template-columns: 1fr;
+  }
+}
