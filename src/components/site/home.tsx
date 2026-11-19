@@ -57,7 +57,7 @@ const apps: readonly App[] = [
     chips: ["iOS · Android · Web", "Expo · Hono"],
     icon: "/apps/urbanify-icon.webp",
     shot: "/apps/urbanify.webp",
-    href: "https://urbanify.com.br",
+    href: "/urbanify",
     tint: "#e3ebf4",
   },
 ];
