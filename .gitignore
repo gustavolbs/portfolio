@@ -46,3 +46,6 @@ next-env.d.ts
 /.codex/
 /.impeccable/
 /tmp/
+
+# cloudflare
+/.wrangler/

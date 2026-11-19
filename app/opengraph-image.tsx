@@ -7,6 +7,7 @@ import { publicProfile as profile } from "@/content/public-profile";
 export const alt = `${profile.shortName}, Senior Frontend, Product & Forward Deployed Engineer`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const dynamic = "force-static";
 
 export default async function Image() {
   const fontData = await readFile(

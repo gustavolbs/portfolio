@@ -1,0 +1,13 @@
+{
+  "name": "iam-site",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-01",
+  "routes": [{ "pattern": "iam.linearcraft.dev", "custom_domain": true }],
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": true
+  }
+}
