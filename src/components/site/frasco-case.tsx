@@ -187,7 +187,7 @@ export function FrascoCase({ lang }: { lang: Lang }) {
         </div>
         <div className={`${s.stage} reveal`} style={{ background: TINT }}>
           <div className={s.phone}>
-            <Image alt={t.heroAlt} height={1354} priority sizes="(max-width: 900px) 62vw, 300px" src="/apps/frasco/collection.webp" width={660} />
+            <Image alt={t.heroAlt} height={1387} priority sizes="(max-width: 900px) 62vw, 300px" src="/apps/frasco/collection.webp" width={660} />
           </div>
         </div>
       </section>
@@ -220,7 +220,7 @@ export function FrascoCase({ lang }: { lang: Lang }) {
                 <div className={s.shot}>
                   <Image
                     alt={t.screenAlt(screen.title)}
-                    height={1354}
+                    height={1387}
                     loading="lazy"
                     sizes="(max-width: 600px) 70vw, (max-width: 900px) 34vw, 260px"
                     src={`/apps/frasco/${shots[index]}.webp`}
