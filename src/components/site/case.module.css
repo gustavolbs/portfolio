@@ -480,3 +480,81 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Big numbers under a section, label under the value. */
+.figures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin: 56px 0 0;
+  padding: 40px 0 0;
+  border-top: 1px solid var(--rule);
+}
+
+.figures div {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.figures dd {
+  order: -1;
+  margin: 0;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.figures dt {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* Six items read as two even rows of three. */
+.principles.six {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .principles.six {
+    grid-template-columns: 1fr;
+  }
+
+  .figures {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.darkLink {
+  display: inline-flex;
+  gap: 8px;
+  margin-top: 32px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--fg);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.darkLink:hover span {
+  transform: translateX(3px);
+}
+
+.darkLink span {
+  transition: transform 0.2s;
+}
+
+/* Four items read as two even rows of two. */
+.principles.four {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 600px) {
+  .principles.four {
+    grid-template-columns: 1fr;
+  }
+}

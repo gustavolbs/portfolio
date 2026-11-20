@@ -62,6 +62,28 @@ const apps: readonly App[] = [
   },
 ];
 
+// Web products close the list side by side, each with a desktop shot.
+const wide: App[] = [
+  {
+    key: "agoraaqui",
+    name: "agoraaqui",
+    chips: ["Web · WhatsApp", "Next.js · Claude"],
+    icon: "/apps/agoraaqui-icon.webp",
+    shot: "/apps/agoraaqui.webp",
+    href: "/agoraaqui",
+    tint: "#efe5d8",
+  },
+  {
+    key: "sales-factory",
+    name: "Sales Factory",
+    chips: ["WhatsApp · CRM", "Claude · MCP"],
+    icon: "/apps/sales-factory-icon.webp",
+    shot: "/apps/sales-factory.webp",
+    href: "/sales-factory",
+    tint: "#e3e9dc",
+  },
+];
+
 // Stage is the step reached in my seven-step app process (market, scope, visual, screens, architecture, tech, store).
 const lab = [
   { key: "beecorder", name: "Beecorder", icon: "/apps/beecorder-icon.webp", stage: 6, label: "building", href: "/beecorder" },
@@ -88,7 +110,8 @@ const credentials = [
 
 const external = (href?: string) => (href?.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {});
 
-function AppCard({ app, t, featured: isFeatured = false }: { app: App; t: HomeCopy; featured?: boolean }) {
+// web: a desktop shot under the text, for the half-width cards of web products
+function AppCard({ app, t, featured: isFeatured = false, web = false }: { app: App; t: HomeCopy; featured?: boolean; web?: boolean }) {
   // case studies have a Portuguese version under /pt
   const href = app.href?.startsWith("/") && t.home !== "/" ? `${t.home}${app.href}` : app.href;
   const body = (
@@ -103,9 +126,9 @@ function AppCard({ app, t, featured: isFeatured = false }: { app: App; t: HomeCo
           ))}
         </ul>
       </div>
-      {isFeatured ? (
+      {isFeatured || web ? (
         <div className={styles.tv}>
-          <Image src={app.shot} alt={`${app.name} ${t.apps.tvAlt}`} width={1200} height={675} loading="lazy" />
+          <Image src={app.shot} alt={app.key === "medusa" ? `${app.name} ${t.apps.tvAlt}` : `${app.name}, ${t.apps.screenAlt}`} width={1200} height={675} loading="lazy" />
         </div>
       ) : (
         <div className={styles.phone}>
@@ -119,7 +142,7 @@ function AppCard({ app, t, featured: isFeatured = false }: { app: App; t: HomeCo
       )}
     </>
   );
-  const className = `${styles.app} ${isFeatured ? styles.feature : ""} reveal`;
+  const className = `${styles.app} ${isFeatured ? styles.feature : ""} ${web ? styles.web : ""} reveal`;
   const style = { background: app.tint };
   return href ? (
     <a className={className} style={style} href={href} {...external(href)}>
@@ -206,6 +229,11 @@ export function Home({ lang = "en" }: { lang?: Lang }) {
               {apps.map((app) => (
                 <AppCard key={app.name} app={app} t={t} />
               ))}
+              <div className={styles.pair}>
+                {wide.map((app) => (
+                  <AppCard key={app.name} app={app} t={t} web />
+                ))}
+              </div>
             </div>
 
             <h3 className={`${styles.eyebrow} ${styles.labHead} reveal`}>{t.lab.title}</h3>

@@ -32,6 +32,8 @@ export const homeCopy = {
         civitasly: "Mobile-first app for real estate agents, from brand to design system.",
         ipcatole: "App and website for a local church: services, Bible, hymns and news.",
         urbanify: "Citizens report city problems and follow each one until it is solved.",
+        agoraaqui: "Small business websites, shown finished on WhatsApp before payment.",
+        "sales-factory": "An AI agent that finds small businesses, sells them a site on WhatsApp and delivers it.",
       },
     },
     lab: {
@@ -116,6 +118,8 @@ export const homeCopy = {
         civitasly: "App mobile-first para corretores de imóveis, da marca ao design system.",
         ipcatole: "App e site de uma igreja local: cultos, Bíblia, hinário e avisos.",
         urbanify: "Cidadãos relatam problemas da cidade e acompanham cada um até a solução.",
+        agoraaqui: "Sites para pequenos negócios, mostrados prontos no WhatsApp antes do pagamento.",
+        "sales-factory": "Um agente de IA que encontra pequenos negócios, vende o site no WhatsApp e entrega.",
       },
     },
     lab: {

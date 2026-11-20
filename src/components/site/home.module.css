@@ -780,7 +780,7 @@ a.app:hover .go {
   }
 }
 
-/* keep the arrow off the Apple TV screenshot */
+/* keep the arrow off the wide screenshots */
 .feature .tv {
   margin-top: 44px;
 }
@@ -789,5 +789,32 @@ a.app:hover .go {
 @media (max-width: 480px) {
   .actions .pill {
     display: none;
+  }
+}
+
+/* web products: two half-width cards in one row, desktop shot under the text */
+.pair {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.web .tv {
+  margin-top: auto;
+  padding-top: 28px;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.web .tv img {
+  border-radius: 14px;
+  box-shadow: 0 24px 48px -24px rgba(30, 35, 60, 0.45);
+}
+
+@media (max-width: 900px) {
+  .pair {
+    grid-template-columns: 1fr;
   }
 }
