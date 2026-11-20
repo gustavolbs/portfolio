@@ -14,23 +14,24 @@ const TINT = "#E9D9BD";
 const shots = ["item", "level", "today", "share", "bought", "arabic"] as const;
 const palette = ["#2C150D", "#F6EFE4", "#2A1810", "#1E5B45", "#8A5A12", "#E3B04B"] as const;
 
-export const frascoCopy = {
+export const galerieCopy = {
   en: {
-    alt: "/pt/frasco",
+    alt: "/pt/galerie",
     back: "Lab · In design, 2026",
-    h1: "Frasco, a catalog for your perfume collection",
-    lede: "An app for perfume collectors with 20 to 100 bottles. It tracks what you have and what you want, what you paid, how much is left in each bottle and decant, and which one to wear today. It launches in Portuguese, English and Arabic, for Brazil, the US and the Gulf. Frasco is a working name.",
+    h1: "Galerie, a catalog for your perfume collection",
+    site: "https://galerie.linearcraft.dev/en/",
+    lede: "An app for perfume collectors with 20 to 100 bottles. It tracks what you have and what you want, what you paid, how much is left in each bottle and decant, and which one to wear today. It launches in Portuguese, English and Arabic, for Brazil, the US and the Gulf.",
     facts: [
       { label: "Role", value: "Research, product, design and architecture" },
       { label: "Platforms", value: "iOS and Android, Brazil, US and the Gulf" },
       { label: "Status", value: "Screens and architecture closed, about 76 h to build" },
       { label: "Name", value: "Working title, final name still open" },
     ],
-    heroAlt: "Frasco home screen: the collection value on a dark banner, recently used bottles, today's pick and the bottles idle the longest",
+    heroAlt: "Galerie home screen: the collection value on a dark banner, recently used bottles, today's pick and the bottles idle the longest",
     rules: {
       eyebrow: "What the research changed",
       title: "Collectors keep it in notes and spreadsheets.",
-      body: "The Arabic perfume wave reached Brazil, and collection apps in the Brazilian store have two reviews or fewer. Frasco replaces the spreadsheet with a list you fill by searching, not typing.",
+      body: "The Arabic perfume wave reached Brazil, and collection apps in the Brazilian store have two reviews or fewer. Galerie replaces the spreadsheet with a list you fill by searching, not typing.",
       steps: [
         { title: "Find, don't type", body: "A catalog of thousands of designer, niche, Arabic and Brazilian perfumes ships inside the app, with offline search. Anything missing can be typed by hand." },
         { title: "One list", body: "Each entry is a bottle or a decant, and Want or Have. Buying flips Want to Have, and the collection value counts only what you have." },
@@ -51,7 +52,7 @@ export const frascoCopy = {
       { title: "I bought it", body: "Moving an item from Want to Have asks for the price paid." },
       { title: "In Arabic", body: "The whole layout mirrors right to left. Digits stay Western, as Gulf retailers show them." },
     ],
-    screenAlt: (title: string) => `Frasco screen design: ${title}`,
+    screenAlt: (title: string) => `Galerie screen design: ${title}`,
     note: "Approved screen designs, rendered from the design canvas. Bottles are AI-generated concepts and the perfume names are invented.",
     system: {
       eyebrow: "Design system",
@@ -88,21 +89,22 @@ export const frascoCopy = {
     contact: ["Have an app idea", "worth testing?"],
   },
   pt: {
-    alt: "/frasco",
+    alt: "/galerie",
     back: "Lab · Em design, 2026",
-    h1: "Frasco, o catálogo da sua coleção de perfumes",
-    lede: "Um app para quem coleciona perfume, com 20 a 100 frascos. Ele guarda o que você tem e o que quer, quanto pagou, quanto resta em cada frasco e decant, e qual usar hoje. Sai em português, inglês e árabe, para Brasil, Estados Unidos e Golfo. Frasco é um nome provisório.",
+    h1: "Galerie, o catálogo da sua coleção de perfumes",
+    site: "https://galerie.linearcraft.dev/",
+    lede: "Um app para quem coleciona perfume, com 20 a 100 frascos. Ele guarda o que você tem e o que quer, quanto pagou, quanto resta em cada frasco e decant, e qual usar hoje. Sai em português, inglês e árabe, para Brasil, Estados Unidos e Golfo.",
     facts: [
       { label: "Papel", value: "Pesquisa, produto, design e arquitetura" },
       { label: "Plataformas", value: "iOS e Android, Brasil, EUA e Golfo" },
       { label: "Status", value: "Telas e arquitetura fechadas, cerca de 76 h de construção" },
       { label: "Nome", value: "Provisório, nome final em aberto" },
     ],
-    heroAlt: "Tela inicial do Frasco: o valor da coleção num banner escuro, frascos usados recentemente, a escolha de hoje e os frascos parados há mais tempo",
+    heroAlt: "Tela inicial do Galerie: o valor da coleção num banner escuro, frascos usados recentemente, a escolha de hoje e os frascos parados há mais tempo",
     rules: {
       eyebrow: "O que a pesquisa mudou",
       title: "Colecionador guarda tudo em nota e planilha.",
-      body: "A febre de perfume árabe chegou ao Brasil, e os apps de coleção da loja brasileira têm no máximo duas avaliações. O Frasco troca a planilha por uma lista que se enche buscando, não digitando.",
+      body: "A febre de perfume árabe chegou ao Brasil, e os apps de coleção da loja brasileira têm no máximo duas avaliações. O Galerie troca a planilha por uma lista que se enche buscando, não digitando.",
       steps: [
         { title: "Busque, não digite", body: "Um catálogo com milhares de perfumes de grife, nicho, árabes e brasileiros vem dentro do app, com busca offline. O que faltar dá para digitar à mão." },
         { title: "Uma lista só", body: "Cada item é frasco ou decant, e Quero ou Tenho. Comprar troca Quero por Tenho, e o valor da coleção conta só o que você tem." },
@@ -123,7 +125,7 @@ export const frascoCopy = {
       { title: "Comprei", body: "Mover um item de Quero para Tenho pede o preço pago." },
       { title: "Em árabe", body: "O layout inteiro espelha da direita para a esquerda. Os algarismos ficam ocidentais, como as lojas do Golfo mostram." },
     ],
-    screenAlt: (title: string) => `Desenho de tela do Frasco: ${title}`,
+    screenAlt: (title: string) => `Desenho de tela do Galerie: ${title}`,
     note: "Desenhos de tela aprovados, renderizados do canvas de design. Os frascos são conceitos gerados por IA e os nomes dos perfumes são inventados.",
     system: {
       eyebrow: "Design system",
@@ -161,8 +163,8 @@ export const frascoCopy = {
   },
 } as const;
 
-export function FrascoCase({ lang }: { lang: Lang }) {
-  const t = frascoCopy[lang];
+export function GalerieCase({ lang }: { lang: Lang }) {
+  const t = galerieCopy[lang];
   const homeHref = lang === "pt" ? "/pt#apps" : "/#apps";
   return (
     <CaseShell lang={lang} alt={t.alt} contactTitle={t.contact}>
@@ -184,10 +186,13 @@ export function FrascoCase({ lang }: { lang: Lang }) {
               </div>
             ))}
           </dl>
+          <div className={s.links}>
+            <a href={t.site} target="_blank" rel="noreferrer">galerie.linearcraft.dev</a>
+          </div>
         </div>
         <div className={`${s.stage} reveal`} style={{ background: TINT }}>
           <div className={s.phone}>
-            <Image alt={t.heroAlt} height={1387} priority sizes="(max-width: 900px) 62vw, 300px" src="/apps/frasco/collection.webp" width={660} />
+            <Image alt={t.heroAlt} height={1387} priority sizes="(max-width: 900px) 62vw, 300px" src="/apps/galerie/collection.webp" width={660} />
           </div>
         </div>
       </section>
@@ -223,7 +228,7 @@ export function FrascoCase({ lang }: { lang: Lang }) {
                     height={1387}
                     loading="lazy"
                     sizes="(max-width: 600px) 70vw, (max-width: 900px) 34vw, 260px"
-                    src={`/apps/frasco/${shots[index]}.webp`}
+                    src={`/apps/galerie/${shots[index]}.webp`}
                     width={660}
                   />
                 </div>

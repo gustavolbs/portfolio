@@ -42,7 +42,7 @@ export const homeCopy = {
       pitch: {
         beecorder: "Voice log for beekeepers, gloves on",
         formula: "Hair color formulas, saved per client",
-        frasco: "A catalog for your perfume collection",
+        galerie: "A catalog for your perfume collection",
         mimir: "Bedtime stories with your child's name",
         montei: "Checklist and budget for a new home",
       },
@@ -126,7 +126,7 @@ export const homeCopy = {
       pitch: {
         beecorder: "Diário de colmeias por voz, sem tirar a luva",
         formula: "Fórmulas de coloração salvas por cliente",
-        frasco: "Catálogo da sua coleção de perfumes",
+        galerie: "Catálogo da sua coleção de perfumes",
         mimir: "Histórias de ninar com o nome do seu filho",
         montei: "Checklist e orçamento para a casa nova",
       },
