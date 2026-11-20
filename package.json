@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "axe": "node scripts/axe-check.mjs",
     "smoke": "node scripts/smoke.mjs",
-    "check:placeholders": "node scripts/check-placeholders.mjs"
+    "check:placeholders": "node scripts/check-placeholders.mjs",
+    "postbuild": "node scripts/lang-pt.mjs"
   },
   "dependencies": {
     "next": "16.3.5",

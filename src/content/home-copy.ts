@@ -39,7 +39,7 @@ export const homeCopy = {
     lab: {
       title: "In the lab",
       step: (n: number, label: string) => `Step ${n} of 7: ${label}`,
-      building: "Building",
+      testing: "Beta testing",
       screens: "Screens done",
       architecture: "Architecture",
       tech: "Tech and tests",
@@ -128,7 +128,7 @@ export const homeCopy = {
     lab: {
       title: "No laboratório",
       step: (n: number, label: string) => `Etapa ${n} de 7: ${label}`,
-      building: "Em construção",
+      testing: "Em teste beta",
       screens: "Telas prontas",
       architecture: "Arquitetura",
       tech: "Tecnologia e testes",
