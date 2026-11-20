@@ -20,6 +20,7 @@ export const beecorderCopy = {
     back: "Lab · In development, 2026",
     h1: "Beecorder, hive notes you speak with gloves on",
     lede: "A voice diary for hobby beekeepers in the US, UK and Australia. Open the hive, press one big button, say what you see and put the phone away. The note is saved on the phone at once, even with no signal, and turns into text filed under the right hive when you are back online. I took it from market research to code: scope, visual, screens, architecture, pricing and store copy.",
+    site: "https://beecorder.linearcraft.dev/",
     facts: [
       { label: "Role", value: "Research, product, design and code" },
       { label: "Platforms", value: "iOS and Android, in English" },
@@ -92,6 +93,7 @@ export const beecorderCopy = {
     back: "Lab · Em desenvolvimento, 2026",
     h1: "Beecorder, notas de colmeia faladas de luva",
     lede: "Um diário de voz para apicultores amadores nos EUA, Reino Unido e Austrália. Abra a colmeia, aperte um botão grande, diga o que vê e guarde o celular. A nota fica salva no aparelho na hora, mesmo sem sinal, e vira texto arquivado na colmeia certa quando a internet volta. Levei da pesquisa de mercado ao código: escopo, visual, telas, arquitetura, preço e textos da loja.",
+    site: "https://beecorder.linearcraft.dev/",
     facts: [
       { label: "Papel", value: "Pesquisa, produto, design e código" },
       { label: "Plataformas", value: "iOS e Android, em inglês" },
@@ -184,6 +186,9 @@ export function BeecorderCase({ lang }: { lang: Lang }) {
               </div>
             ))}
           </dl>
+          <div className={s.links}>
+            <a href={t.site} target="_blank" rel="noreferrer">beecorder.linearcraft.dev</a>
+          </div>
         </div>
         <div className={`${s.stage} reveal`} style={{ background: TINT }}>
           <div className={s.phone}>

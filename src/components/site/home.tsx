@@ -67,7 +67,7 @@ const lab = [
   { key: "beecorder", name: "Beecorder", icon: "/apps/beecorder-icon.webp", stage: 6, label: "building", href: "/beecorder" },
   { key: "formula", name: "Fio", icon: "/apps/formula-icon.webp", stage: 4, label: "screens", href: "/fio" },
   { key: "frasco", name: "Frasco", icon: "/apps/frasco-icon.webp", stage: 4, label: "screens", href: "/frasco" },
-  { key: "cafune", name: "Cafuné", icon: "/apps/cafune-icon.webp", stage: 4, label: "screens", href: "/cafune" },
+  { key: "mimir", name: "Mimir", icon: "/apps/mimir-icon.webp", stage: 4, label: "screens", href: "/mimir" },
   { key: "montei", name: "Montei", icon: "/apps/montei-icon.webp", stage: 4, label: "screens", href: "/montei" },
 ] as const;
 

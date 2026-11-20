@@ -11,6 +11,9 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
     if (RETIRED.test(url.pathname)) return Response.redirect(`${url.origin}/`, 301);
+    // The bedtime app was renamed from Cafuné to Mimir.
+    const renamed = url.pathname.match(/^(\/pt)?\/cafune(\/.*)?$/);
+    if (renamed) return Response.redirect(`${url.origin}${renamed[1] || ''}/mimir`, 301);
 
     const res = await env.ASSETS.fetch(request);
     if (res.status === 307) return new Response(null, { status: 301, headers: { location: res.headers.get('location') } });

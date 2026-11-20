@@ -14,19 +14,19 @@ const TINT = "#D9C8F0";
 const shots = ["child", "writing", "player", "timer", "read", "limit"] as const;
 const palette = ["#1E1430", "#2A1D42", "#F4ECF2", "#BDADD0", "#F0C987", "#C9A6FF"] as const;
 
-export const cafuneCopy = {
+export const mimirCopy = {
   en: {
-    alt: "/pt/cafune",
+    alt: "/pt/mimir",
     back: "Lab · In development, 2026",
-    h1: "Cafuné, bedtime stories with your child's name",
-    lede: "A bedtime app for Brazilian parents. Each night it writes a new story with the child's name, their pet and something from their day, and can read it aloud in a warm voice. Saved stories play offline, a sleep timer fades everything out, and the whole interface stays dark for a bedroom with the lights off. Cafuné is a working name.",
+    h1: "Mimir, bedtime stories with your child's name",
+    lede: "A bedtime app for Brazilian parents. Each night it writes a new story with the child's name, their pet and something from their day, and can read it aloud in a warm voice. Saved stories play offline, a sleep timer fades everything out, and the whole interface stays dark for a bedroom with the lights off.",
+    site: "https://mimir.linearcraft.dev/",
     facts: [
       { label: "Role", value: "Research, product, design and architecture" },
       { label: "Platforms", value: "iOS and Android, Brazil, Portuguese" },
       { label: "Status", value: "Architecture closed, tech choices in progress" },
-      { label: "Name", value: "Working title, final name still open" },
     ],
-    heroAlt: "Cafuné Tonight screen: an illustrated bedroom at night with a puppy asleep, the question Shall we dream with Pipo? and a Tell the story button",
+    heroAlt: "Mimir Tonight screen: an illustrated bedroom at night with a puppy asleep, the question Shall we dream with Pipo? and a Tell the story button",
     rules: {
       eyebrow: "What the research changed",
       title: "One tired parent, one sleepy child.",
@@ -51,7 +51,7 @@ export const cafuneCopy = {
       { title: "Read aloud", body: "The same story as text, set in Nunito, for the parent who prefers their own voice." },
       { title: "Enough for tonight", body: "New stories have a daily cap. The library stays open and does not count." },
     ],
-    screenAlt: (title: string) => `Cafuné screen design: ${title}`,
+    screenAlt: (title: string) => `Mimir screen design: ${title}`,
     note: "Approved screen designs in Portuguese, rendered from the design canvas. Names are examples.",
     system: {
       eyebrow: "Design system",
@@ -88,17 +88,17 @@ export const cafuneCopy = {
     contact: ["Have an app idea", "worth testing?"],
   },
   pt: {
-    alt: "/cafune",
+    alt: "/mimir",
     back: "Lab · Em desenvolvimento, 2026",
-    h1: "Cafuné, histórias de ninar com o nome do seu filho",
-    lede: "Um app de hora de dormir para pais brasileiros. Toda noite ele escreve uma história nova com o nome da criança, o bichinho dela e algo do dia, e pode narrar com uma voz calma. Histórias salvas tocam sem internet, um timer abaixa tudo até o silêncio e a interface inteira fica escura para um quarto de luz apagada. Cafuné é um nome provisório.",
+    h1: "Mimir, histórias de ninar com o nome do seu filho",
+    lede: "Um app de hora de dormir para pais brasileiros. Toda noite ele escreve uma história nova com o nome da criança, o bichinho dela e algo do dia, e pode narrar com uma voz calma. Histórias salvas tocam sem internet, um timer abaixa tudo até o silêncio e a interface inteira fica escura para um quarto de luz apagada.",
+    site: "https://mimir.linearcraft.dev/",
     facts: [
       { label: "Papel", value: "Pesquisa, produto, design e arquitetura" },
       { label: "Plataformas", value: "iOS e Android, Brasil, português" },
       { label: "Status", value: "Arquitetura fechada, tecnologia em andamento" },
-      { label: "Nome", value: "Provisório, nome final em aberto" },
     ],
-    heroAlt: "Tela Hoje do Cafuné: um quarto ilustrado à noite com um cachorrinho dormindo, a pergunta Vamos sonhar com o Pipo? e o botão Contar a história",
+    heroAlt: "Tela Hoje do Mimir: um quarto ilustrado à noite com um cachorrinho dormindo, a pergunta Vamos sonhar com o Pipo? e o botão Contar a história",
     rules: {
       eyebrow: "O que a pesquisa mudou",
       title: "Um pai cansado, uma criança com sono.",
@@ -123,7 +123,7 @@ export const cafuneCopy = {
       { title: "Ler em voz alta", body: "A mesma história em texto, em Nunito, para quem prefere a própria voz." },
       { title: "Chega por hoje", body: "Histórias novas têm limite por dia. A biblioteca continua aberta e não conta." },
     ],
-    screenAlt: (title: string) => `Desenho de tela do Cafuné: ${title}`,
+    screenAlt: (title: string) => `Desenho de tela do Mimir: ${title}`,
     note: "Desenhos de tela aprovados, renderizados do canvas de design. Os nomes são exemplos.",
     system: {
       eyebrow: "Design system",
@@ -161,8 +161,8 @@ export const cafuneCopy = {
   },
 } as const;
 
-export function CafuneCase({ lang }: { lang: Lang }) {
-  const t = cafuneCopy[lang];
+export function MimirCase({ lang }: { lang: Lang }) {
+  const t = mimirCopy[lang];
   const homeHref = lang === "pt" ? "/pt#apps" : "/#apps";
   return (
     <CaseShell lang={lang} alt={t.alt} contactTitle={t.contact}>
@@ -184,10 +184,13 @@ export function CafuneCase({ lang }: { lang: Lang }) {
               </div>
             ))}
           </dl>
+          <div className={s.links}>
+            <a href={t.site} target="_blank" rel="noreferrer">mimir.linearcraft.dev</a>
+          </div>
         </div>
         <div className={`${s.stage} reveal`} style={{ background: TINT }}>
           <div className={s.phone}>
-            <Image alt={t.heroAlt} height={1428} priority sizes="(max-width: 900px) 62vw, 300px" src="/apps/cafune/tonight.webp" width={660} />
+            <Image alt={t.heroAlt} height={1428} priority sizes="(max-width: 900px) 62vw, 300px" src="/apps/mimir/tonight.webp" width={660} />
           </div>
         </div>
       </section>
@@ -223,7 +226,7 @@ export function CafuneCase({ lang }: { lang: Lang }) {
                     height={1428}
                     loading="lazy"
                     sizes="(max-width: 600px) 70vw, (max-width: 900px) 34vw, 260px"
-                    src={`/apps/cafune/${shots[index]}.webp`}
+                    src={`/apps/mimir/${shots[index]}.webp`}
                     width={660}
                   />
                 </div>

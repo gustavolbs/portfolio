@@ -20,6 +20,7 @@ export const monteiCopy = {
     back: "Lab · In design, 2026",
     h1: "Montei, a new home that fills up as you buy",
     lede: "A checklist and budget for Brazilians setting up their first home: couples moving in together and people leaving their parents' place. A ready catalog of 138 items in 10 rooms, a spending cap that builds the shopping list for you, and a room scene at the top of each screen that gains a piece of furniture every time you mark something as bought.",
+    site: "https://montei.linearcraft.dev/",
     facts: [
       { label: "Role", value: "Research, product and design" },
       { label: "Platforms", value: "iOS and Android, Brazil" },
@@ -92,6 +93,7 @@ export const monteiCopy = {
     back: "Lab · Em design, 2026",
     h1: "Montei, a casa nova que se enche a cada compra",
     lede: "Checklist e orçamento para quem monta a primeira casa: casais indo morar juntos e quem sai da casa dos pais. Um catálogo pronto de 138 itens em 10 cômodos, um teto de gasto que monta a lista de compras para você e uma cena do cômodo no topo de cada tela, que ganha um móvel a cada item marcado como comprado.",
+    site: "https://montei.linearcraft.dev/",
     facts: [
       { label: "Papel", value: "Pesquisa, produto e design" },
       { label: "Plataformas", value: "iOS e Android, Brasil" },
@@ -184,6 +186,9 @@ export function MonteiCase({ lang }: { lang: Lang }) {
               </div>
             ))}
           </dl>
+          <div className={s.links}>
+            <a href={t.site} target="_blank" rel="noreferrer">montei.linearcraft.dev</a>
+          </div>
         </div>
         <div className={`${s.stage} reveal`} style={{ background: TINT }}>
           <div className={s.phone}>

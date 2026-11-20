@@ -20,6 +20,7 @@ export const fioCopy = {
     back: "Lab · In design, 2026",
     h1: "Fio, every client's color history in one thread",
     lede: "A record book for independent hair colorists in Brazil and the US. Each client keeps her formulas, before and after photos and a return date. The next visit starts from a copy of the last one, and on the return date the colorist gets a ready WhatsApp message to send. I took it from market research to approved screens, architecture, pricing and store copy.",
+    site: "https://fio.linearcraft.dev/en/",
     facts: [
       { label: "Role", value: "Research, product and design" },
       { label: "Platforms", value: "iOS and Android, Portuguese and English" },
@@ -92,6 +93,7 @@ export const fioCopy = {
     back: "Lab · Em design, 2026",
     h1: "Fio, a história de cor de cada cliente num fio só",
     lede: "Uma ficha para coloristas autônomas no Brasil e nos EUA. Cada cliente guarda suas fórmulas, fotos de antes e depois e uma data de retorno. A próxima visita começa de uma cópia da anterior, e no dia do retorno a colorista recebe uma mensagem de WhatsApp pronta para enviar. Levei da pesquisa de mercado às telas aprovadas, arquitetura, preço e textos da loja.",
+    site: "https://fio.linearcraft.dev/",
     facts: [
       { label: "Papel", value: "Pesquisa, produto e design" },
       { label: "Plataformas", value: "iOS e Android, português e inglês" },
@@ -184,6 +186,9 @@ export function FioCase({ lang }: { lang: Lang }) {
               </div>
             ))}
           </dl>
+          <div className={s.links}>
+            <a href={t.site} target="_blank" rel="noreferrer">fio.linearcraft.dev</a>
+          </div>
         </div>
         <div className={`${s.stage} reveal`} style={{ background: TINT }}>
           <div className={s.phone}>
