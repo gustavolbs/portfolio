@@ -87,10 +87,10 @@ const wide: App[] = [
 // Stage is the step reached in my seven-step app process (market, scope, visual, screens, architecture, tech, store).
 const lab = [
   { key: "beecorder", name: "Beecorder", icon: "/apps/beecorder-icon.webp", stage: 6, label: "building", href: "/beecorder" },
-  { key: "formula", name: "Fio", icon: "/apps/formula-icon.webp", stage: 4, label: "screens", href: "/fio" },
-  { key: "galerie", name: "Galerie", icon: "/apps/galerie-icon.webp", stage: 4, label: "screens", href: "/galerie" },
-  { key: "mimir", name: "Mimir", icon: "/apps/mimir-icon.webp", stage: 4, label: "screens", href: "/mimir" },
-  { key: "montei", name: "Montei", icon: "/apps/montei-icon.webp", stage: 4, label: "screens", href: "/montei" },
+  { key: "formula", name: "Fio", icon: "/apps/formula-icon.webp", stage: 7, label: "pricing", href: "/fio" },
+  { key: "galerie", name: "Galerie", icon: "/apps/galerie-icon.webp", stage: 7, label: "pricing", href: "/galerie" },
+  { key: "mimir", name: "Mimir", icon: "/apps/mimir-icon.webp", stage: 6, label: "tech", href: "/mimir" },
+  { key: "montei", name: "Montei", icon: "/apps/montei-icon.webp", stage: 5, label: "architecture", href: "/montei" },
 ] as const;
 
 const employers = [

@@ -41,6 +41,9 @@ export const homeCopy = {
       step: (n: number, label: string) => `Step ${n} of 7: ${label}`,
       building: "Building",
       screens: "Screens done",
+      architecture: "Architecture",
+      tech: "Tech and tests",
+      pricing: "Pricing and stores",
       pitch: {
         beecorder: "Voice log for beekeepers, gloves on",
         formula: "Hair color formulas, saved per client",
@@ -127,6 +130,9 @@ export const homeCopy = {
       step: (n: number, label: string) => `Etapa ${n} de 7: ${label}`,
       building: "Em construção",
       screens: "Telas prontas",
+      architecture: "Arquitetura",
+      tech: "Tecnologia e testes",
+      pricing: "Preço e lojas",
       pitch: {
         beecorder: "Diário de colmeias por voz, sem tirar a luva",
         formula: "Fórmulas de coloração salvas por cliente",
