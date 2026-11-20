@@ -15,7 +15,7 @@ const STORE = "https://apps.apple.com/app/id6827226157";
 const TINT = "#e7e9f2";
 
 const palette = ["#0B0C10", "#15171D", "#F4F5F7", "#A3A7B5", "#FFFFFF", "#F5C518"] as const;
-const screenFiles = ["home.webp", "explore.webp"] as const;
+const screenFiles = ["home.webp", "detail.webp", "explore.webp", "library.webp", "search.webp", "settings.webp"] as const;
 
 export const medusaCopy = {
   en: {
@@ -49,7 +49,11 @@ export const medusaCopy = {
     },
     screens: [
       { title: "Home", body: "The hero rotates through what is new on the server, led by each title's own logo art." },
+      { title: "Detail", body: "Title logo, rating, synopsis and cast. Play has the focus when the page opens." },
       { title: "Explore", body: "Top 10 today and collections, with big numbers you can read from the couch." },
+      { title: "Library", body: "Each server library becomes a poster grid, with Shuffle, Sort and Filter on top." },
+      { title: "Search", body: "Movies, shows and episodes from the TV keyboard. Before you type, it shows what arrived last." },
+      { title: "Settings", body: "No Medusa account: you sign in on your own Jellyfin server, and you manage servers here." },
     ],
     screenAlt: (title: string) => `${title} screen of Medusa on Apple TV`,
     note: "Captured on Apple TV with open movies from the Blender Foundation. The app ships no movies or shows.",
@@ -118,7 +122,11 @@ export const medusaCopy = {
     },
     screens: [
       { title: "Início", body: "O destaque gira pelas novidades do servidor, com a arte de logo de cada título." },
+      { title: "Detalhe", body: "Logo do título, nota, sinopse e elenco. O botão Assistir já abre com o foco." },
       { title: "Explorar", body: "Top 10 de hoje e coleções, com números grandes que dá para ler do sofá." },
+      { title: "Biblioteca", body: "Cada biblioteca do servidor vira uma grade de pôsteres, com Aleatório, Ordenar e Filtrar no topo." },
+      { title: "Busca", body: "Filmes, séries e episódios pelo teclado da TV. Antes de digitar, mostra o que chegou por último." },
+      { title: "Configurações", body: "Sem conta no Medusa: o login é no seu próprio servidor Jellyfin, e os servidores ficam aqui." },
     ],
     screenAlt: (title: string) => `Tela ${title} do Medusa na Apple TV`,
     note: "Capturas na Apple TV com filmes abertos da Blender Foundation. O app não traz filmes nem séries.",
