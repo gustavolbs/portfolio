@@ -34,6 +34,15 @@ const featured: App = {
 
 const apps: readonly App[] = [
   {
+    key: "beecorder",
+    name: "Beecorder",
+    chips: ["iOS · Android", "Expo"],
+    icon: "/apps/beecorder-icon.webp",
+    shot: "/apps/beecorder.webp",
+    href: "/beecorder",
+    tint: "#f5ecd3",
+  },
+  {
     key: "civitasly",
     name: "Civitasly",
     chips: ["iOS · Android · Web", "Expo"],
@@ -86,7 +95,6 @@ const wide: App[] = [
 
 // Stage is the step reached in my seven-step app process (market, scope, visual, screens, architecture, tech, store).
 const lab = [
-  { key: "beecorder", name: "Beecorder", icon: "/apps/beecorder-icon.webp", stage: 7, label: "live", href: "/beecorder" },
   { key: "formula", name: "Fio", icon: "/apps/formula-icon.webp", stage: 7, label: "pricing", href: "/fio" },
   { key: "galerie", name: "Galerie", icon: "/apps/galerie-icon.webp", stage: 7, label: "pricing", href: "/galerie" },
   { key: "mimir", name: "Mimir", icon: "/apps/mimir-icon.webp", stage: 6, label: "tech", href: "/mimir" },

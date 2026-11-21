@@ -29,6 +29,7 @@ export const homeCopy = {
       screenAlt: "screen",
       pitch: {
         medusa: "A free Apple TV client for your own Jellyfin server, with controls designed around the Siri Remote.",
+        beecorder: "A voice diary for beekeepers: speak hive notes with gloves on, even with no signal.",
         civitasly: "Mobile-first app for real estate agents, from brand to design system.",
         ipcatole: "App and website for a local church: services, Bible, hymns and news.",
         urbanify: "Citizens report city problems and follow each one until it is solved.",
@@ -39,13 +40,11 @@ export const homeCopy = {
     lab: {
       title: "In the lab",
       step: (n: number, label: string) => `Step ${n} of 7: ${label}`,
-      live: "Live on iPhone and Android",
       screens: "Screens done",
       architecture: "Architecture",
       tech: "Tech and tests",
       pricing: "Pricing and stores",
       pitch: {
-        beecorder: "Voice log for beekeepers, gloves on",
         formula: "Hair color formulas, saved per client",
         galerie: "A catalog for your perfume collection",
         mimir: "Bedtime stories with your child's name",
@@ -118,6 +117,7 @@ export const homeCopy = {
       screenAlt: "tela",
       pitch: {
         medusa: "Cliente gratuito de Apple TV para o seu servidor Jellyfin, com controles pensados para o Siri Remote.",
+        beecorder: "Um diário de voz para apicultores: notas da colmeia faladas de luva, até sem sinal.",
         civitasly: "App mobile-first para corretores de imóveis, da marca ao design system.",
         ipcatole: "App e site de uma igreja local: cultos, Bíblia, hinário e avisos.",
         urbanify: "Cidadãos relatam problemas da cidade e acompanham cada um até a solução.",
@@ -128,13 +128,11 @@ export const homeCopy = {
     lab: {
       title: "No laboratório",
       step: (n: number, label: string) => `Etapa ${n} de 7: ${label}`,
-      live: "No ar no iPhone e Android",
       screens: "Telas prontas",
       architecture: "Arquitetura",
       tech: "Tecnologia e testes",
       pricing: "Preço e lojas",
       pitch: {
-        beecorder: "Diário de colmeias por voz, sem tirar a luva",
         formula: "Fórmulas de coloração salvas por cliente",
         galerie: "Catálogo da sua coleção de perfumes",
         mimir: "Histórias de ninar com o nome do seu filho",

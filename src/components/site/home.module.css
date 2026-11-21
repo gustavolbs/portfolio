@@ -337,7 +337,7 @@
 /* apps */
 .apps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
@@ -456,7 +456,7 @@ a.app:hover .go {
 
 .lab {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin: 0;
   padding: 0;
@@ -717,7 +717,11 @@ a.app:hover .go {
 
 @media (max-width: 1100px) {
   .lab {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .apps {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
