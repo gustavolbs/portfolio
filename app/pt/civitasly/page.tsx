@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     "Civitasly, um app mobile para corretores de imóveis: produto, marca, design system, iOS/Android, web e um pipeline de anúncios em código, por Gustavo Bispo.",
   alternates: { canonical: "/pt/civitasly", languages: { en: "/civitasly", "pt-BR": "/pt/civitasly", "x-default": "/civitasly" } },
   openGraph: {
+    type: "article",
+    siteName: "Gustavo Bispo",
     title: "Civitasly, estudo de caso · Gustavo Bispo",
     description: "Produto, design system, app mobile, plataforma web e pipeline de anúncios, de ponta a ponta.",
     url: "/pt/civitasly",

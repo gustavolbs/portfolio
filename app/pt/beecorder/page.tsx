@@ -5,9 +5,11 @@ import { BeecorderCase } from "@/components/site/beecorder-case";
 export const metadata: Metadata = {
   title: "Beecorder, estudo de caso",
   description:
-    "Beecorder, um diário de voz para apicultores amadores: notas de colmeia faladas de luva, gravadas sem sinal e transformadas em texto. Pesquisa, design e código de Gustavo Bispo.",
+    "Beecorder, um diário de voz para apicultores amadores: notas faladas de luva, gravadas sem sinal e viradas em texto. Pesquisa, design e código de Gustavo Bispo.",
   alternates: { canonical: "/pt/beecorder", languages: { en: "/beecorder", "pt-BR": "/pt/beecorder", "x-default": "/beecorder" } },
   openGraph: {
+    type: "article",
+    siteName: "Gustavo Bispo",
     title: "Beecorder, estudo de caso · Gustavo Bispo",
     description: "Notas de colmeia faladas de luva, da pesquisa de mercado ao código.",
     url: "/pt/beecorder",

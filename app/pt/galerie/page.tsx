@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     "Galerie, catálogo da coleção de perfumes: busca offline, frascos e decants, nível, preço e qual usar hoje, em português, inglês e árabe.",
   alternates: { canonical: "/pt/galerie", languages: { en: "/galerie", "pt-BR": "/pt/galerie", "x-default": "/galerie" } },
   openGraph: {
+    type: "article",
+    siteName: "Gustavo Bispo",
     title: "Galerie, estudo de caso · Gustavo Bispo",
     description: "O catálogo da sua coleção de perfumes, da pesquisa de mercado à arquitetura.",
     url: "/pt/galerie",

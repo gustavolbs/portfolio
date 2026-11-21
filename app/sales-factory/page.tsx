@@ -5,9 +5,12 @@ import { SalesFactoryCase } from "@/components/site/sales-factory-case";
 export const metadata: Metadata = {
   title: "Sales Factory case study",
   description:
-    "Sales Factory, an AI sales agent that finds small businesses, builds each one a site preview, talks to the owner on WhatsApp, charges and publishes the site, with the CRM to watch it, built by Gustavo Bispo.",
+    "Sales Factory, an AI sales agent that finds small businesses, previews their site, talks to the owner on WhatsApp, charges and publishes it. By Gustavo Bispo.",
   alternates: { canonical: "/sales-factory", languages: { en: "/sales-factory", "pt-BR": "/pt/sales-factory", "x-default": "/sales-factory" } },
   openGraph: {
+    type: "article",
+    siteName: "Gustavo Bispo",
+    locale: "en_US",
     title: "Sales Factory case study · Gustavo Bispo",
     description: "An AI agent that prospects, sells and delivers on its own.",
     url: "/sales-factory",
