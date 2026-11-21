@@ -24,7 +24,7 @@ export const beecorderCopy = {
     facts: [
       { label: "Role", value: "Research, product, design and code" },
       { label: "Platforms", value: "iOS and Android, in English" },
-      { label: "Status", value: "Building the app" },
+      { label: "Status", value: "Live on the App Store and Google Play" },
       { label: "Price", value: "Free plan, Premium at $39.99 a year" },
     ],
     heroAlt: "Beecorder apiary screen: an illustrated island with hives, and the hives that need attention first",
@@ -97,7 +97,7 @@ export const beecorderCopy = {
     facts: [
       { label: "Papel", value: "Pesquisa, produto, design e código" },
       { label: "Plataformas", value: "iOS e Android, em inglês" },
-      { label: "Status", value: "App em construção" },
+      { label: "Status", value: "No ar na App Store e no Google Play" },
       { label: "Preço", value: "Plano grátis, Premium a US$ 39,99 por ano" },
     ],
     heroAlt: "Tela do apiário no Beecorder: uma ilha ilustrada com colmeias e as colmeias que pedem atenção primeiro",
